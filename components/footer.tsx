@@ -36,9 +36,9 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-card border-t border-border/50 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 gradient-mesh opacity-30" />
+    <footer className="relative bg-card border-t border-border overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 gradient-subtle opacity-50" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main footer content */}
@@ -46,8 +46,8 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan to-purple flex items-center justify-center">
-                <span className="text-lg font-bold text-white">G</span>
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <span className="text-lg font-bold text-primary-foreground">G</span>
               </div>
               <span className="text-xl font-bold">Goalcryst</span>
             </Link>
@@ -57,15 +57,15 @@ export function Footer() {
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <Mail className="w-4 h-4 text-cyan" />
+                <Mail className="w-4 h-4 text-primary" />
                 <span>contact@goalcryst.com</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <Phone className="w-4 h-4 text-cyan" />
+                <Phone className="w-4 h-4 text-primary" />
                 <span>+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-cyan" />
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Global Operations Center</span>
               </div>
             </div>
@@ -124,7 +124,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="py-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Goalcryst. All rights reserved.
           </p>
@@ -137,7 +137,7 @@ export function Footer() {
                 href={social.href}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-9 h-9 rounded-lg bg-secondary/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
               >
                 <social.icon className="w-4 h-4" />
                 <span className="sr-only">{social.name}</span>

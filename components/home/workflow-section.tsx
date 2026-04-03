@@ -48,12 +48,12 @@ export function WorkflowSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple/10 border border-purple/20 mb-4">
-            <span className="text-xs font-medium text-purple uppercase tracking-wider">Our Process</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <span className="text-xs font-medium text-primary uppercase tracking-wider">Our Process</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-balance">
             How We{" "}
-            <span className="bg-gradient-to-r from-purple to-cyan bg-clip-text text-transparent">
+            <span className="text-primary">
               Transform
             </span>
             {" "}Your Operations
@@ -66,22 +66,22 @@ export function WorkflowSection() {
         {/* Timeline */}
         <div className="relative">
           {/* Connection line - Desktop */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px -translate-y-1/2">
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 bg-border">
             <motion.div
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
               transition={{ duration: 1, delay: 0.3 }}
-              className="h-full bg-gradient-to-r from-cyan via-purple to-cyan origin-left"
+              className="h-full bg-primary/50 origin-left"
             />
           </div>
 
           {/* Connection line - Mobile */}
-          <div className="lg:hidden absolute top-0 bottom-0 left-8 w-px">
+          <div className="lg:hidden absolute top-0 bottom-0 left-8 w-px bg-border">
             <motion.div
               initial={{ scaleY: 0 }}
               animate={isInView ? { scaleY: 1 } : {}}
               transition={{ duration: 1, delay: 0.3 }}
-              className="h-full bg-gradient-to-b from-cyan via-purple to-cyan origin-top"
+              className="h-full bg-primary/50 origin-top"
             />
           </div>
 
@@ -97,7 +97,7 @@ export function WorkflowSection() {
               >
                 {/* Mobile step indicator */}
                 <div className="lg:hidden absolute left-0 top-0">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan to-purple flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple/20">
+                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
                     {step.number}
                   </div>
                 </div>
@@ -105,14 +105,14 @@ export function WorkflowSection() {
                 {/* Card */}
                 <div className="group relative">
                   {/* Desktop step indicator */}
-                  <div className="hidden lg:flex absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-purple items-center justify-center text-white text-xs font-bold z-10 shadow-lg shadow-purple/20">
+                  <div className="hidden lg:flex absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary items-center justify-center text-primary-foreground text-xs font-bold z-10 shadow-lg">
                     {parseInt(step.number)}
                   </div>
 
-                  <div className="lg:mt-8 p-6 rounded-2xl bg-card/50 border border-border/30 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5">
+                  <div className="lg:mt-8 p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
                     {/* Icon */}
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-deep-blue to-card border border-border/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <step.icon className="w-6 h-6 text-cyan" />
+                    <div className="w-12 h-12 rounded-xl bg-secondary border border-border flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <step.icon className="w-6 h-6 text-primary" />
                     </div>
 
                     {/* Content */}

@@ -6,7 +6,6 @@ export default function EmailSupportPage() {
     <SolutionPageTemplate
       name="Email Support"
       icon={Mail}
-      color="from-cyan to-purple"
       headline="Efficient Email Management at Scale"
       description="Professional email support with quick turnaround times, intelligent routing, and consistent quality."
       features={[

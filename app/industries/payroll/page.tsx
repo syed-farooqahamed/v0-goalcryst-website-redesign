@@ -6,7 +6,6 @@ export default function PayrollPage() {
     <IndustryPageTemplate
       name="Payroll"
       icon={Wallet}
-      color="from-emerald-400 to-teal-500"
       headline="Reliable Payroll Processing Excellence"
       description="Accurate, timely, and compliant payroll processing services that ensure your employees are paid right, every time."
       features={[

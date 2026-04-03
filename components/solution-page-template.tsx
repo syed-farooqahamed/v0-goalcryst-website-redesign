@@ -9,7 +9,6 @@ import type { LucideIcon } from "lucide-react"
 interface SolutionPageProps {
   name: string
   icon: LucideIcon
-  color: string
   headline: string
   description: string
   features: {
@@ -27,7 +26,6 @@ interface SolutionPageProps {
 export function SolutionPageTemplate({
   name,
   icon: Icon,
-  color,
   headline,
   description,
   features,
@@ -38,12 +36,12 @@ export function SolutionPageTemplate({
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-blue/30 to-background" />
-        <div className="absolute inset-0 gradient-mesh opacity-20" />
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 gradient-subtle" />
         
         {/* Decorative elements */}
-        <div className={`absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-br ${color} opacity-10 blur-3xl`} />
-        <div className={`absolute bottom-1/4 left-1/4 w-48 h-48 rounded-full bg-gradient-to-br ${color} opacity-10 blur-3xl`} />
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 rounded-full bg-primary/5 blur-3xl" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Back link */}
@@ -69,8 +67,8 @@ export function SolutionPageTemplate({
               transition={{ duration: 0.6 }}
             >
               {/* Icon badge */}
-              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${color} mb-6`}>
-                <Icon className="w-8 h-8 text-white" />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary mb-6">
+                <Icon className="w-8 h-8 text-primary-foreground" />
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
@@ -84,7 +82,7 @@ export function SolutionPageTemplate({
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90 glow-cyan"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <Link href="/contact">
                     Get Started
@@ -104,13 +102,13 @@ export function SolutionPageTemplate({
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="rounded-3xl bg-card/50 border border-border/30 p-8 backdrop-blur-sm">
+              <div className="rounded-3xl bg-card border border-border p-8 shadow-lg">
                 <h3 className="text-lg font-semibold mb-6">Key Benefits</h3>
                 <div className="space-y-4">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <div className={`w-6 h-6 rounded-md bg-gradient-to-br ${color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                        <Check className="w-4 h-4 text-white" />
+                      <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-4 h-4 text-primary-foreground" />
                       </div>
                       <span>{benefit}</span>
                     </div>
@@ -119,8 +117,8 @@ export function SolutionPageTemplate({
               </div>
               
               {/* Decorative corners */}
-              <div className={`absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 rounded-tr-xl opacity-50`} style={{ borderColor: `var(--cyan)` }} />
-              <div className={`absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 rounded-bl-xl opacity-50`} style={{ borderColor: `var(--purple)` }} />
+              <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-border rounded-tr-xl" />
+              <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-border rounded-bl-xl" />
             </motion.div>
           </div>
         </div>
@@ -137,7 +135,7 @@ export function SolutionPageTemplate({
             className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 {name}
               </span>
               {" "}Features
@@ -155,10 +153,10 @@ export function SolutionPageTemplate({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="p-6 rounded-2xl bg-card/50 border border-border/30 hover:border-primary/30 transition-colors"
+                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors"
               >
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} opacity-20 flex items-center justify-center mb-4`}>
-                  <span className="text-lg font-bold">{index + 1}</span>
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <span className="text-lg font-bold text-primary">{index + 1}</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
@@ -169,7 +167,7 @@ export function SolutionPageTemplate({
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-gradient-to-b from-background via-deep-blue/10 to-background">
+      <section className="py-20 bg-secondary/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -180,7 +178,7 @@ export function SolutionPageTemplate({
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               How It{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Works
               </span>
             </h2>
@@ -188,7 +186,7 @@ export function SolutionPageTemplate({
 
           <div className="relative">
             {/* Connection line */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 bg-gradient-to-r from-cyan via-purple to-cyan" />
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 bg-border" />
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {process.map((step, index) => (
@@ -201,11 +199,11 @@ export function SolutionPageTemplate({
                   className="relative"
                 >
                   {/* Step number */}
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${color} flex items-center justify-center text-white font-bold text-lg mx-auto mb-4 relative z-10`}>
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-lg mx-auto mb-4 relative z-10">
                     {step.step}
                   </div>
                   
-                  <div className="text-center p-4 rounded-xl bg-card/50 border border-border/30">
+                  <div className="text-center p-4 rounded-xl bg-card border border-border">
                     <h3 className="font-semibold mb-2">{step.title}</h3>
                     <p className="text-sm text-muted-foreground">{step.description}</p>
                   </div>
@@ -234,7 +232,7 @@ export function SolutionPageTemplate({
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90 glow-cyan"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <Link href="/contact">
                 Schedule a Demo

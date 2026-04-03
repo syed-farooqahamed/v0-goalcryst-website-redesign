@@ -6,7 +6,6 @@ export default function AiMlDataSolutionsPage() {
     <IndustryPageTemplate
       name="AI/ML Data Solutions"
       icon={Brain}
-      color="from-cyan to-purple"
       headline="Powering AI with Premium Data Solutions"
       description="High-quality data annotation, labeling, and processing services that fuel the next generation of artificial intelligence and machine learning models."
       features={[

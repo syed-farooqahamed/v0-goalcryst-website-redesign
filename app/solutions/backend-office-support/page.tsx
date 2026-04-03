@@ -6,7 +6,6 @@ export default function BackendOfficeSupportPage() {
     <SolutionPageTemplate
       name="Backend Office Support"
       icon={Server}
-      color="from-green-400 to-cyan"
       headline="Streamlined Back-Office Operations"
       description="Comprehensive back-office support that handles the heavy lifting so you can focus on growing your business."
       features={[

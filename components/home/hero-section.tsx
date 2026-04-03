@@ -9,20 +9,19 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background layers */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-deep-blue/20 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
       
-      {/* Animated mesh gradient */}
+      {/* Subtle gradient orbs */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan/20 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-deep-blue/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl animate-pulse-soft" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "2s" }} />
       </div>
 
       {/* Grid pattern overlay */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}
       />
@@ -37,15 +36,15 @@ export function HeroSection() {
           className="absolute top-[20%] left-[10%] hidden lg:block"
         >
           <div className="animate-float">
-            <div className="w-48 h-32 rounded-xl bg-card/50 backdrop-blur-sm border border-border/30 p-4 shadow-xl">
+            <div className="w-48 h-32 rounded-xl bg-card border border-border p-4 shadow-lg">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full bg-cyan" />
+                <div className="w-2 h-2 rounded-full bg-primary" />
                 <span className="text-xs text-muted-foreground">Live Operations</span>
               </div>
               <div className="space-y-2">
-                <div className="h-2 bg-gradient-to-r from-cyan/50 to-transparent rounded-full w-full" />
-                <div className="h-2 bg-gradient-to-r from-purple/50 to-transparent rounded-full w-3/4" />
-                <div className="h-2 bg-gradient-to-r from-cyan/30 to-transparent rounded-full w-1/2" />
+                <div className="h-2 bg-primary/20 rounded-full w-full" />
+                <div className="h-2 bg-primary/15 rounded-full w-3/4" />
+                <div className="h-2 bg-primary/10 rounded-full w-1/2" />
               </div>
             </div>
           </div>
@@ -58,23 +57,23 @@ export function HeroSection() {
           className="absolute top-[30%] right-[8%] hidden lg:block"
         >
           <div className="animate-float-delayed">
-            <div className="w-56 h-36 rounded-xl bg-card/50 backdrop-blur-sm border border-border/30 p-4 shadow-xl">
+            <div className="w-56 h-36 rounded-xl bg-card border border-border p-4 shadow-lg">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs text-muted-foreground">Global Reach</span>
-                <span className="text-xs font-mono text-cyan">24/7</span>
+                <span className="text-xs font-mono text-primary">24/7</span>
               </div>
               <div className="grid grid-cols-3 gap-2">
                 {[...Array(6)].map((_, i) => (
                   <div
                     key={i}
-                    className="h-4 rounded bg-gradient-to-r from-purple/30 to-cyan/30"
-                    style={{ opacity: 0.3 + (i * 0.1) }}
+                    className="h-4 rounded bg-secondary"
+                    style={{ opacity: 0.4 + (i * 0.1) }}
                   />
                 ))}
               </div>
               <div className="mt-3 flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan to-purple" />
-                <div className="flex-1 h-1.5 rounded-full bg-gradient-to-r from-cyan/50 to-purple/50" />
+                <div className="w-6 h-6 rounded-full bg-primary" />
+                <div className="flex-1 h-1.5 rounded-full bg-primary/20" />
               </div>
             </div>
           </div>
@@ -87,16 +86,16 @@ export function HeroSection() {
           className="absolute bottom-[25%] left-[15%] hidden lg:block"
         >
           <div className="animate-float" style={{ animationDelay: "1s" }}>
-            <div className="w-40 h-24 rounded-xl bg-card/50 backdrop-blur-sm border border-border/30 p-3 shadow-xl">
+            <div className="w-40 h-24 rounded-xl bg-card border border-border p-3 shadow-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Sparkles className="w-3 h-3 text-purple" />
+                <Sparkles className="w-3 h-3 text-primary" />
                 <span className="text-xs text-muted-foreground">AI-Powered</span>
               </div>
               <div className="flex items-end gap-1 h-10">
                 {[40, 65, 45, 80, 55, 70, 90].map((h, i) => (
                   <div
                     key={i}
-                    className="flex-1 rounded-t bg-gradient-to-t from-purple/60 to-cyan/60"
+                    className="flex-1 rounded-t bg-primary/40"
                     style={{ height: `${h}%` }}
                   />
                 ))}
@@ -105,11 +104,11 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Connection lines */}
-        <svg className="absolute inset-0 w-full h-full hidden lg:block" style={{ opacity: 0.1 }}>
+        {/* Subtle connection lines */}
+        <svg className="absolute inset-0 w-full h-full hidden lg:block" style={{ opacity: 0.06 }}>
           <motion.path
             d="M200,200 Q400,100 600,300 T1000,200"
-            stroke="url(#cyan-gradient)"
+            stroke="currentColor"
             strokeWidth="1"
             fill="none"
             initial={{ pathLength: 0 }}
@@ -118,41 +117,30 @@ export function HeroSection() {
           />
           <motion.path
             d="M100,400 Q300,300 500,400 T900,350"
-            stroke="url(#purple-gradient)"
+            stroke="currentColor"
             strokeWidth="1"
             fill="none"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ duration: 2, delay: 1.2 }}
           />
-          <defs>
-            <linearGradient id="cyan-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="oklch(0.75 0.18 195)" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
-            <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="oklch(0.65 0.25 300)" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
-          </defs>
         </svg>
 
-        {/* Floating orbs */}
+        {/* Floating dots */}
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 rounded-full"
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/40"
             style={{
-              background: i % 2 === 0 ? "oklch(0.75 0.18 195)" : "oklch(0.65 0.25 300)",
               left: `${20 + i * 15}%`,
               top: `${30 + (i % 3) * 20}%`,
             }}
             animate={{
-              y: [0, -30, 0],
-              opacity: [0.3, 0.8, 0.3],
+              y: [0, -20, 0],
+              opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
-              duration: 3 + i,
+              duration: 4 + i,
               repeat: Infinity,
               delay: i * 0.5,
             }}
@@ -168,11 +156,11 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/30 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border mb-8"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             <span className="text-sm text-muted-foreground">Next-Generation BPO Solutions</span>
           </motion.div>
@@ -186,7 +174,7 @@ export function HeroSection() {
           >
             <span className="text-balance">Redefining</span>
             <br />
-            <span className="bg-gradient-to-r from-cyan via-purple to-cyan bg-clip-text text-transparent animate-gradient text-balance">
+            <span className="text-primary text-balance">
               Intelligent Business
             </span>
             <br />
@@ -214,7 +202,7 @@ export function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90 transition-opacity glow-cyan px-8 h-12"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors px-8 h-12"
             >
               <Link href="/solutions">
                 Explore Solutions
@@ -225,7 +213,7 @@ export function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-border/50 bg-card/30 backdrop-blur-sm hover:bg-card/50 px-8 h-12"
+              className="border-border bg-card hover:bg-secondary px-8 h-12"
             >
               <Link href="/contact">Contact Us</Link>
             </Button>
@@ -245,7 +233,7 @@ export function HeroSection() {
               { value: "24/7", label: "Support Coverage" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+                <div className="text-2xl sm:text-3xl font-bold text-primary">
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>

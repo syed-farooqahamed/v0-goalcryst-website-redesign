@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useInView, useSpring, useTransform } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
 
 const stats = [
@@ -47,14 +47,13 @@ export function StatsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="relative py-24 overflow-hidden">
+    <section ref={ref} className="relative py-24 overflow-hidden bg-secondary/50">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-deep-blue/50 via-background to-deep-blue/50" />
-      <div className="absolute inset-0 gradient-mesh opacity-30" />
+      <div className="absolute inset-0 gradient-subtle" />
       
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan/50 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple/50 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -66,7 +65,7 @@ export function StatsSection() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-balance">
             Impact That{" "}
-            <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+            <span className="text-primary">
               Speaks
             </span>
           </h2>
@@ -85,12 +84,9 @@ export function StatsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="text-center p-6 rounded-2xl bg-card/30 border border-border/30 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
-                {/* Glow */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan/5 to-purple/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                
+              <div className="text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
                 {/* Value */}
-                <div className="relative text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent mb-2">
+                <div className="relative text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-2">
                   <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                 </div>
                 

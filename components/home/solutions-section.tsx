@@ -14,7 +14,6 @@ const solutions = [
     href: "/solutions/chat-support",
     description: "Real-time intelligent chat solutions powered by AI and human expertise.",
     features: ["24/7 Availability", "Multi-language Support", "AI-Assisted Responses", "Seamless Escalation"],
-    color: "cyan",
   },
   {
     id: "phone",
@@ -23,7 +22,6 @@ const solutions = [
     href: "/solutions/phone-support",
     description: "Professional voice support that enhances customer experience.",
     features: ["Trained Specialists", "Quality Monitoring", "Call Analytics", "Callback Options"],
-    color: "purple",
   },
   {
     id: "email",
@@ -32,7 +30,6 @@ const solutions = [
     href: "/solutions/email-support",
     description: "Efficient email management with quick turnaround times.",
     features: ["Smart Routing", "Template Management", "SLA Tracking", "Sentiment Analysis"],
-    color: "cyan",
   },
   {
     id: "backend",
@@ -41,7 +38,6 @@ const solutions = [
     href: "/solutions/backend-office-support",
     description: "Comprehensive back-office operations that keep your business running.",
     features: ["Data Processing", "Document Management", "Quality Assurance", "Reporting"],
-    color: "purple",
   },
   {
     id: "customer",
@@ -50,7 +46,6 @@ const solutions = [
     href: "/solutions/customer-support",
     description: "End-to-end customer service solutions tailored to your needs.",
     features: ["Omnichannel Support", "CRM Integration", "Customer Analytics", "Retention Programs"],
-    color: "cyan",
   },
 ]
 
@@ -62,7 +57,7 @@ export function SolutionsSection() {
   return (
     <section ref={ref} className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-deep-blue/10 to-background" />
+      <div className="absolute inset-0 bg-background" />
       
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -72,12 +67,12 @@ export function SolutionsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20 mb-4">
-            <span className="text-xs font-medium text-cyan uppercase tracking-wider">Solutions</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <span className="text-xs font-medium text-primary uppercase tracking-wider">Solutions</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-balance">
             Comprehensive Support{" "}
-            <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+            <span className="text-primary">
               Solutions
             </span>
           </h2>
@@ -101,28 +96,16 @@ export function SolutionsSection() {
             >
               <Link href={solution.href} className="block h-full">
                 <div className={`
-                  relative h-full rounded-2xl border transition-all duration-500
+                  relative h-full rounded-2xl border transition-all duration-300
                   ${hoveredId === solution.id 
-                    ? "bg-card border-primary/30 shadow-2xl shadow-primary/10" 
-                    : "bg-card/50 border-border/30"
+                    ? "bg-card border-primary/30 shadow-xl" 
+                    : "bg-card border-border"
                   }
                 `}>
-                  {/* Glow effect */}
-                  <div className={`
-                    absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm
-                    ${solution.color === "cyan" ? "bg-gradient-to-r from-cyan/50 to-transparent" : "bg-gradient-to-r from-purple/50 to-transparent"}
-                  `} />
-                  
                   <div className="relative p-6 h-full flex flex-col">
                     {/* Icon */}
-                    <div className={`
-                      w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110
-                      ${solution.color === "cyan" 
-                        ? "bg-gradient-to-br from-cyan/20 to-cyan/5 border border-cyan/20" 
-                        : "bg-gradient-to-br from-purple/20 to-purple/5 border border-purple/20"
-                      }
-                    `}>
-                      <solution.icon className={`w-7 h-7 ${solution.color === "cyan" ? "text-cyan" : "text-purple"}`} />
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 bg-primary/10 border border-primary/20">
+                      <solution.icon className="w-7 h-7 text-primary" />
                     </div>
 
                     {/* Content */}
@@ -137,7 +120,7 @@ export function SolutionsSection() {
                     <div className="space-y-2 mb-4">
                       {solution.features.map((feature) => (
                         <div key={feature} className="flex items-center gap-2 text-sm">
-                          <Check className={`w-4 h-4 ${solution.color === "cyan" ? "text-cyan" : "text-purple"}`} />
+                          <Check className="w-4 h-4 text-primary" />
                           <span className="text-muted-foreground">{feature}</span>
                         </div>
                       ))}
@@ -165,7 +148,7 @@ export function SolutionsSection() {
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90"
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
           >
             <Link href="/solutions">
               View All Solutions

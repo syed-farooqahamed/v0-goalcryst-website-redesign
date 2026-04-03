@@ -6,7 +6,6 @@ export default function UsTitleInsurancePage() {
     <IndustryPageTemplate
       name="US Title Insurance"
       icon={Home}
-      color="from-rose-400 to-red-500"
       headline="Expert US Title Insurance Solutions"
       description="Specialized title insurance services supporting the US real estate market with accuracy, speed, and compliance."
       features={[

@@ -10,7 +10,6 @@ const solutions = [
     name: "Chat Support",
     icon: MessageCircle,
     href: "/solutions/chat-support",
-    color: "from-cyan to-blue-500",
     description: "Real-time intelligent chat solutions powered by AI and human expertise for instant customer engagement.",
     features: ["24/7 Availability", "Multi-language Support", "AI-Assisted Responses", "Seamless Escalation", "Proactive Engagement"],
   },
@@ -18,7 +17,6 @@ const solutions = [
     name: "Phone Support",
     icon: Phone,
     href: "/solutions/phone-support",
-    color: "from-purple to-pink-500",
     description: "Professional voice support with trained specialists delivering exceptional customer experiences.",
     features: ["Trained Specialists", "Quality Monitoring", "Call Analytics", "IVR Integration", "Callback Options"],
   },
@@ -26,7 +24,6 @@ const solutions = [
     name: "Email Support",
     icon: Mail,
     href: "/solutions/email-support",
-    color: "from-cyan to-purple",
     description: "Efficient email management with quick turnaround times and intelligent prioritization.",
     features: ["Smart Routing", "Template Management", "SLA Tracking", "Sentiment Analysis", "Priority Queuing"],
   },
@@ -34,7 +31,6 @@ const solutions = [
     name: "Backend Office Support",
     icon: Server,
     href: "/solutions/backend-office-support",
-    color: "from-green-400 to-cyan",
     description: "Comprehensive back-office operations that streamline processes and improve efficiency.",
     features: ["Data Processing", "Document Management", "Quality Assurance", "Process Automation", "Reporting"],
   },
@@ -42,7 +38,6 @@ const solutions = [
     name: "Customer Support",
     icon: Users,
     href: "/solutions/customer-support",
-    color: "from-amber-400 to-orange-500",
     description: "End-to-end customer service solutions delivering omnichannel excellence.",
     features: ["Omnichannel Support", "CRM Integration", "Customer Analytics", "Retention Programs", "Feedback Management"],
   },
@@ -53,8 +48,8 @@ export default function SolutionsPage() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-blue/30 to-background" />
-        <div className="absolute inset-0 gradient-mesh opacity-20" />
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 gradient-subtle" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -63,12 +58,12 @@ export default function SolutionsPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple/10 border border-purple/20 mb-6">
-              <span className="text-xs font-medium text-purple uppercase tracking-wider">Solutions</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <span className="text-xs font-medium text-primary uppercase tracking-wider">Solutions</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
               Comprehensive Support{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Solutions
               </span>
             </h1>
@@ -92,15 +87,12 @@ export default function SolutionsPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link href={solution.href} className="group block">
-                  <div className="relative p-8 rounded-3xl bg-card/50 border border-border/30 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 overflow-hidden">
-                    {/* Gradient background on hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${solution.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                    
+                  <div className="relative p-8 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg overflow-hidden">
                     <div className="relative grid lg:grid-cols-2 gap-8 items-center">
                       <div>
                         {/* Icon */}
-                        <div className={`inline-flex w-16 h-16 rounded-2xl bg-gradient-to-br ${solution.color} items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                          <solution.icon className="w-8 h-8 text-white" />
+                        <div className="inline-flex w-16 h-16 rounded-2xl bg-primary items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                          <solution.icon className="w-8 h-8 text-primary-foreground" />
                         </div>
                         
                         <h2 className="text-2xl sm:text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
@@ -119,19 +111,14 @@ export default function SolutionsPage() {
                       {/* Features */}
                       <div className="grid sm:grid-cols-2 gap-3">
                         {solution.features.map((feature) => (
-                          <div key={feature} className="flex items-center gap-3 p-3 rounded-xl bg-secondary/30">
-                            <div className={`w-6 h-6 rounded-md bg-gradient-to-br ${solution.color} flex items-center justify-center flex-shrink-0`}>
-                              <Check className="w-3 h-3 text-white" />
+                          <div key={feature} className="flex items-center gap-3 p-3 rounded-xl bg-secondary">
+                            <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center flex-shrink-0">
+                              <Check className="w-3 h-3 text-primary-foreground" />
                             </div>
                             <span className="text-sm font-medium">{feature}</span>
                           </div>
                         ))}
                       </div>
-                    </div>
-                    
-                    {/* Decorative corner */}
-                    <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden">
-                      <div className={`absolute -top-16 -right-16 w-32 h-32 bg-gradient-to-br ${solution.color} opacity-10 rotate-45`} />
                     </div>
                   </div>
                 </Link>
@@ -159,7 +146,7 @@ export default function SolutionsPage() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90 glow-cyan"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <Link href="/contact">
                 Contact Our Team

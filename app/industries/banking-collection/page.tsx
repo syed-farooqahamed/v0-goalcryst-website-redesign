@@ -6,7 +6,6 @@ export default function BankingCollectionPage() {
     <IndustryPageTemplate
       name="Banking & Collection"
       icon={Landmark}
-      color="from-purple to-pink-500"
       headline="Secure Banking Solutions & Professional Collections"
       description="Compliant, secure, and efficient banking operations paired with professional collection services that maintain customer relationships."
       features={[

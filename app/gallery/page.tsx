@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 const categories = ["All", "Office", "Events", "Team", "Workspace", "Awards"]
 
@@ -53,8 +52,8 @@ export default function GalleryPage() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-blue/30 to-background" />
-        <div className="absolute inset-0 gradient-mesh opacity-20" />
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 gradient-subtle" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -63,12 +62,12 @@ export default function GalleryPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20 mb-6">
-              <span className="text-xs font-medium text-cyan uppercase tracking-wider">Gallery</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <span className="text-xs font-medium text-primary uppercase tracking-wider">Gallery</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
               Life at{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Goalcryst
               </span>
             </h1>
@@ -90,8 +89,8 @@ export default function GalleryPage() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   selectedCategory === category
-                    ? "bg-gradient-to-r from-cyan to-purple text-white"
-                    : "bg-secondary/50 text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {category}
@@ -111,16 +110,16 @@ export default function GalleryPage() {
               >
                 <button
                   onClick={() => setSelectedImage(item.id)}
-                  className="group relative w-full rounded-2xl overflow-hidden bg-card border border-border/30 hover:border-primary/30 transition-all"
+                  className="group relative w-full rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all"
                 >
                   {/* Placeholder for image */}
                   <div 
-                    className={`w-full bg-gradient-to-br from-deep-blue/50 to-card flex items-center justify-center ${
+                    className={`w-full bg-secondary flex items-center justify-center ${
                       item.size === "large" ? "h-80" : item.size === "medium" ? "h-64" : "h-48"
                     }`}
                   >
                     <div className="text-center p-6">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                         <span className="text-2xl font-bold text-muted-foreground/50">{item.id}</span>
                       </div>
                       <span className="text-muted-foreground/50 text-sm">{item.category}</span>
@@ -130,7 +129,7 @@ export default function GalleryPage() {
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
                     <div className="p-4 w-full">
-                      <span className="text-xs text-cyan uppercase tracking-wider">{item.category}</span>
+                      <span className="text-xs text-primary uppercase tracking-wider">{item.category}</span>
                       <h3 className="font-semibold">{item.title}</h3>
                     </div>
                   </div>
@@ -179,10 +178,10 @@ export default function GalleryPage() {
             className="max-w-4xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="rounded-2xl overflow-hidden bg-card border border-border/50">
-              <div className="aspect-video bg-gradient-to-br from-deep-blue/50 to-card flex items-center justify-center">
+            <div className="rounded-2xl overflow-hidden bg-card border border-border">
+              <div className="aspect-video bg-secondary flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <span className="text-4xl font-bold text-muted-foreground/50">
                       {filteredItems[currentIndex]?.id}
                     </span>
@@ -191,7 +190,7 @@ export default function GalleryPage() {
                 </div>
               </div>
               <div className="p-6">
-                <span className="text-xs text-cyan uppercase tracking-wider">
+                <span className="text-xs text-primary uppercase tracking-wider">
                   {filteredItems[currentIndex]?.category}
                 </span>
                 <h3 className="text-xl font-semibold mt-1">

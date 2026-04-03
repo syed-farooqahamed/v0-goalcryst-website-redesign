@@ -6,7 +6,6 @@ export default function AviationPage() {
     <IndustryPageTemplate
       name="Aviation"
       icon={Plane}
-      color="from-cyan to-blue-500"
       headline="Elevating Aviation Operations to New Heights"
       description="From booking management to in-flight services, we provide comprehensive aviation support that enhances passenger experience and operational efficiency."
       features={[

@@ -6,7 +6,6 @@ export default function ChatSupportPage() {
     <SolutionPageTemplate
       name="Chat Support"
       icon={MessageCircle}
-      color="from-cyan to-blue-500"
       headline="Intelligent Chat Support That Never Sleeps"
       description="Deliver instant, personalized customer experiences with our AI-powered chat support solutions backed by human expertise."
       features={[

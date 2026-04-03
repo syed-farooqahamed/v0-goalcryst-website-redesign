@@ -6,7 +6,6 @@ export default function FinanceAccountingPage() {
     <IndustryPageTemplate
       name="Finance & Accounting"
       icon={Calculator}
-      color="from-amber-400 to-orange-500"
       headline="Precision Financial Operations You Can Trust"
       description="Accurate, compliant, and efficient financial processing services that keep your books in order and your business moving forward."
       features={[

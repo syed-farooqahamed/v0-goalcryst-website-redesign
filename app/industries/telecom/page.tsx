@@ -6,7 +6,6 @@ export default function TelecomPage() {
     <IndustryPageTemplate
       name="Telecom"
       icon={Wifi}
-      color="from-violet-400 to-purple"
       headline="Keeping the World Connected"
       description="24/7 telecommunications support that ensures seamless connectivity and exceptional customer experiences across all channels."
       features={[

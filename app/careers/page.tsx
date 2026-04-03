@@ -6,12 +6,9 @@ import { Button } from "@/components/ui/button"
 import { 
   ArrowRight, 
   MapPin, 
-  Clock, 
   Briefcase, 
   Heart, 
   GraduationCap, 
-  Users, 
-  Zap, 
   Globe,
   Coffee,
   Laptop,
@@ -127,8 +124,8 @@ export default function CareersPage() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-blue/30 to-background" />
-        <div className="absolute inset-0 gradient-mesh opacity-20" />
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 gradient-subtle" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -137,12 +134,12 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple/10 border border-purple/20 mb-6">
-              <span className="text-xs font-medium text-purple uppercase tracking-wider">Careers</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <span className="text-xs font-medium text-primary uppercase tracking-wider">Careers</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
               Build the Future of{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Business Operations
               </span>
             </h1>
@@ -165,7 +162,7 @@ export default function CareersPage() {
               { value: "8+", label: "Global Offices" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl font-bold text-cyan">{stat.value}</div>
+                <div className="text-2xl font-bold text-primary">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -185,7 +182,7 @@ export default function CareersPage() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Our{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Culture
               </span>
             </h2>
@@ -202,10 +199,10 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-card/50 border border-border/30 hover:border-primary/30 transition-colors"
+                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan to-purple flex items-center justify-center mb-4">
-                  <span className="text-white font-bold">{index + 1}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-4">
+                  <span className="text-primary-foreground font-bold">{index + 1}</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
@@ -216,7 +213,7 @@ export default function CareersPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-gradient-to-b from-background via-deep-blue/10 to-background">
+      <section className="py-20 bg-secondary/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -227,7 +224,7 @@ export default function CareersPage() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Benefits &{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Perks
               </span>
             </h2>
@@ -244,10 +241,10 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="flex items-start gap-4 p-6 rounded-2xl bg-card/50 border border-border/30"
+                className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center flex-shrink-0">
-                  <benefit.icon className="w-6 h-6 text-cyan" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <benefit.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">{benefit.title}</h3>
@@ -271,7 +268,7 @@ export default function CareersPage() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Open{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Positions
               </span>
             </h2>
@@ -288,8 +285,8 @@ export default function CareersPage() {
                 onClick={() => setSelectedDepartment(dept)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   selectedDepartment === dept
-                    ? "bg-gradient-to-r from-cyan to-purple text-white"
-                    : "bg-secondary/50 text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {dept}
@@ -305,12 +302,12 @@ export default function CareersPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="group p-6 rounded-2xl bg-card/50 border border-border/30 hover:border-primary/30 transition-all"
+                className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all"
               >
                 <div className="flex flex-col lg:flex-row lg:items-center gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2 py-1 rounded text-xs font-medium bg-cyan/10 text-cyan">
+                      <span className="px-2 py-1 rounded text-xs font-medium bg-primary/10 text-primary">
                         {job.department}
                       </span>
                     </div>
@@ -331,7 +328,7 @@ export default function CareersPage() {
                       <Briefcase className="w-4 h-4" />
                       {job.type}
                     </div>
-                    <Button size="sm" className="bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90">
+                    <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
                       Apply Now
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
@@ -350,7 +347,7 @@ export default function CareersPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-deep-blue/50 via-background to-deep-blue/50">
+      <section className="py-20 bg-secondary/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -367,7 +364,7 @@ export default function CareersPage() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90 glow-cyan"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <Link href="/contact">
                 Submit Your Resume

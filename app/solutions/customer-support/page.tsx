@@ -6,7 +6,6 @@ export default function CustomerSupportPage() {
     <SolutionPageTemplate
       name="Customer Support"
       icon={Users}
-      color="from-amber-400 to-orange-500"
       headline="End-to-End Customer Support Excellence"
       description="Comprehensive omnichannel support solutions that deliver exceptional experiences across every touchpoint."
       features={[

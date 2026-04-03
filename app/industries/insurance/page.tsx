@@ -6,7 +6,6 @@ export default function InsurancePage() {
     <IndustryPageTemplate
       name="Insurance"
       icon={Shield}
-      color="from-blue-400 to-indigo-500"
       headline="Streamlined Insurance Operations"
       description="End-to-end insurance support from policy administration to claims processing, delivering efficiency and customer satisfaction."
       features={[

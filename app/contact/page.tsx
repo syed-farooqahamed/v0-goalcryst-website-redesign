@@ -64,8 +64,8 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-blue/30 to-background" />
-        <div className="absolute inset-0 gradient-mesh opacity-20" />
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 gradient-subtle" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -74,12 +74,12 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple/10 border border-purple/20 mb-6">
-              <span className="text-xs font-medium text-purple uppercase tracking-wider">Contact</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <span className="text-xs font-medium text-primary uppercase tracking-wider">Contact</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
               {"Let's Start a"}{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Conversation
               </span>
             </h1>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="John Doe"
-                      className="bg-card/50 border-border/50"
+                      className="bg-card border-border"
                     />
                   </div>
                   <div>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="john@company.com"
-                      className="bg-card/50 border-border/50"
+                      className="bg-card border-border"
                     />
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Your Company"
-                      className="bg-card/50 border-border/50"
+                      className="bg-card border-border"
                     />
                   </div>
                   <div>
@@ -158,7 +158,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+1 (555) 000-0000"
-                      className="bg-card/50 border-border/50"
+                      className="bg-card border-border"
                     />
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="How can we help?"
-                    className="bg-card/50 border-border/50"
+                    className="bg-card border-border"
                   />
                 </div>
 
@@ -188,7 +188,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell us about your project or requirements..."
-                    className="bg-card/50 border-border/50 resize-none"
+                    className="bg-card border-border resize-none"
                   />
                 </div>
 
@@ -196,7 +196,7 @@ export default function ContactPage() {
                   type="submit"
                   size="lg"
                   disabled={formState !== "idle"}
-                  className="w-full bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90 glow-cyan"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   {formState === "idle" && (
                     <>
@@ -227,8 +227,8 @@ export default function ContactPage() {
               {/* Quick contact */}
               <div className="space-y-6 mb-12">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-cyan" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email Us</h3>
@@ -238,8 +238,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-cyan" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Call Us</h3>
@@ -249,8 +249,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-cyan" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">24/7 Support</h3>
@@ -263,10 +263,10 @@ export default function ContactPage() {
               <div className="mb-12">
                 <h3 className="font-semibold mb-4">Follow Us</h3>
                 <div className="flex gap-3">
-                  <a href="#" className="w-10 h-10 rounded-lg bg-secondary/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
+                  <a href="#" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-lg bg-secondary/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
+                  <a href="#" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors">
                     <Twitter className="w-5 h-5" />
                   </a>
                 </div>
@@ -279,10 +279,10 @@ export default function ContactPage() {
                   {offices.map((office) => (
                     <div 
                       key={office.city}
-                      className="p-4 rounded-xl bg-card/50 border border-border/30"
+                      className="p-4 rounded-xl bg-card border border-border"
                     >
                       <div className="flex items-center gap-2 mb-2">
-                        <MapPin className="w-4 h-4 text-cyan" />
+                        <MapPin className="w-4 h-4 text-primary" />
                         <span className="font-medium">{office.city}</span>
                       </div>
                       <p className="text-xs text-muted-foreground">{office.address}</p>
@@ -297,19 +297,19 @@ export default function ContactPage() {
       </section>
 
       {/* Map placeholder */}
-      <section className="py-20 bg-gradient-to-b from-background via-deep-blue/10 to-background">
+      <section className="py-20 bg-secondary/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-3xl overflow-hidden border border-border/30 bg-card/50"
+            className="relative rounded-3xl overflow-hidden border border-border bg-card"
           >
-            <div className="aspect-[21/9] flex items-center justify-center bg-gradient-to-br from-deep-blue/30 to-card">
+            <div className="aspect-[21/9] flex items-center justify-center bg-secondary">
               <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-8 h-8 text-cyan" />
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Global Presence</h3>
                 <p className="text-muted-foreground">Offices in 8+ cities across 4 continents</p>
@@ -317,8 +317,8 @@ export default function ContactPage() {
             </div>
             
             {/* Decorative corners */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan/30 rounded-tl-3xl" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-purple/30 rounded-br-3xl" />
+            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-border rounded-tl-3xl" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-border rounded-br-3xl" />
           </motion.div>
         </div>
       </section>

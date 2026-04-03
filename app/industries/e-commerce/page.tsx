@@ -6,7 +6,6 @@ export default function EcommercePage() {
     <IndustryPageTemplate
       name="E-Commerce"
       icon={ShoppingCart}
-      color="from-green-400 to-cyan"
       headline="Driving E-Commerce Success at Scale"
       description="Comprehensive e-commerce support solutions that enhance customer satisfaction, boost conversions, and streamline operations."
       features={[

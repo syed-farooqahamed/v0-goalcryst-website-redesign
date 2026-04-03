@@ -38,12 +38,12 @@ export function GlobalPresence() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20 mb-4">
-            <span className="text-xs font-medium text-cyan uppercase tracking-wider">Global Reach</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <span className="text-xs font-medium text-primary uppercase tracking-wider">Global Reach</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-balance">
             Worldwide{" "}
-            <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+            <span className="text-primary">
               Operations
             </span>
           </h2>
@@ -60,12 +60,12 @@ export function GlobalPresence() {
           className="relative aspect-[2/1] max-w-5xl mx-auto"
         >
           {/* Map background */}
-          <div className="absolute inset-0 rounded-3xl bg-card/30 border border-border/30 backdrop-blur-sm overflow-hidden">
+          <div className="absolute inset-0 rounded-3xl bg-card border border-border overflow-hidden shadow-lg">
             {/* Grid pattern */}
             <div 
               className="absolute inset-0 opacity-[0.03]"
               style={{
-                backgroundImage: `linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px)`,
+                backgroundImage: `linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)`,
                 backgroundSize: '40px 40px'
               }}
             />
@@ -83,26 +83,15 @@ export function GlobalPresence() {
                     y1={from.y}
                     x2={to.x}
                     y2={to.y}
-                    stroke="url(#line-gradient)"
-                    strokeWidth="0.2"
+                    stroke="currentColor"
+                    strokeWidth="0.15"
+                    className="text-primary"
                     initial={{ pathLength: 0, opacity: 0 }}
-                    animate={isInView ? { pathLength: 1, opacity: 0.5 } : {}}
+                    animate={isInView ? { pathLength: 1, opacity: 0.3 } : {}}
                     transition={{ duration: 1.5, delay: 0.5 + i * 0.1 }}
                   />
                 )
               })}
-              
-              {/* Gradient definitions */}
-              <defs>
-                <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="oklch(0.75 0.18 195)" />
-                  <stop offset="100%" stopColor="oklch(0.65 0.25 300)" />
-                </linearGradient>
-                <radialGradient id="node-glow">
-                  <stop offset="0%" stopColor="oklch(0.75 0.18 195)" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="oklch(0.75 0.18 195)" stopOpacity="0" />
-                </radialGradient>
-              </defs>
             </svg>
 
             {/* Location nodes */}
@@ -116,17 +105,14 @@ export function GlobalPresence() {
                 transition={{ duration: 0.5, delay: 0.8 + location.delay }}
               >
                 {/* Pulse effect */}
-                <div className="absolute -inset-4 rounded-full bg-cyan/20 animate-ping" style={{ animationDuration: "3s", animationDelay: `${index * 0.3}s` }} />
+                <div className="absolute -inset-3 rounded-full bg-primary/20 animate-ping" style={{ animationDuration: "3s", animationDelay: `${index * 0.3}s` }} />
                 
                 {/* Node */}
-                <div className="relative w-3 h-3 rounded-full bg-gradient-to-r from-cyan to-purple shadow-lg shadow-cyan/50 cursor-pointer">
-                  {/* Glow */}
-                  <div className="absolute -inset-2 rounded-full bg-cyan/30 blur-sm" />
-                </div>
+                <div className="relative w-2.5 h-2.5 rounded-full bg-primary shadow-md cursor-pointer" />
 
                 {/* Label */}
                 <div className="absolute left-1/2 -translate-x-1/2 -top-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="px-2 py-1 rounded bg-card/90 border border-border/50 text-xs font-medium whitespace-nowrap backdrop-blur-sm">
+                  <div className="px-2 py-1 rounded bg-card border border-border text-xs font-medium whitespace-nowrap shadow-md">
                     {location.name}
                   </div>
                 </div>
@@ -135,10 +121,10 @@ export function GlobalPresence() {
           </div>
 
           {/* Decorative corners */}
-          <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-cyan/50 rounded-tl-xl" />
-          <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-purple/50 rounded-tr-xl" />
-          <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-purple/50 rounded-bl-xl" />
-          <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-cyan/50 rounded-br-xl" />
+          <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-border rounded-tl-xl" />
+          <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-border rounded-tr-xl" />
+          <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-border rounded-bl-xl" />
+          <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-border rounded-br-xl" />
         </motion.div>
 
         {/* Stats below map */}
@@ -154,7 +140,7 @@ export function GlobalPresence() {
             { value: "50+", label: "Countries" },
           ].map((stat) => (
             <div key={stat.label}>
-              <div className="text-2xl font-bold text-cyan">{stat.value}</div>
+              <div className="text-2xl font-bold text-primary">{stat.value}</div>
               <div className="text-sm text-muted-foreground">{stat.label}</div>
             </div>
           ))}

@@ -6,7 +6,6 @@ export default function PhoneSupportPage() {
     <SolutionPageTemplate
       name="Phone Support"
       icon={Phone}
-      color="from-purple to-pink-500"
       headline="Professional Voice Support That Builds Trust"
       description="Expert phone support with trained specialists who represent your brand with professionalism and care."
       features={[

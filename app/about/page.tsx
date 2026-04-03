@@ -68,8 +68,8 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-blue/30 to-background" />
-        <div className="absolute inset-0 gradient-mesh opacity-20" />
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 gradient-subtle" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -78,12 +78,12 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20 mb-6">
-              <span className="text-xs font-medium text-cyan uppercase tracking-wider">About Us</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <span className="text-xs font-medium text-primary uppercase tracking-wider">About Us</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
               Pioneering the Future of{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Business Operations
               </span>
             </h1>
@@ -104,10 +104,10 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="p-8 rounded-3xl bg-card/50 border border-border/30"
+              className="p-8 rounded-3xl bg-card border border-border"
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-blue-500 flex items-center justify-center mb-6">
-                <Target className="w-7 h-7 text-white" />
+              <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-6">
+                <Target className="w-7 h-7 text-primary-foreground" />
               </div>
               <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
               <p className="text-muted-foreground">
@@ -121,10 +121,10 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="p-8 rounded-3xl bg-card/50 border border-border/30"
+              className="p-8 rounded-3xl bg-card border border-border"
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple to-pink-500 flex items-center justify-center mb-6">
-                <Eye className="w-7 h-7 text-white" />
+              <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-6">
+                <Eye className="w-7 h-7 text-primary-foreground" />
               </div>
               <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
               <p className="text-muted-foreground">
@@ -137,7 +137,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-gradient-to-b from-background via-deep-blue/10 to-background">
+      <section className="py-20 bg-secondary/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -148,7 +148,7 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Our{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Journey
               </span>
             </h2>
@@ -159,7 +159,7 @@ export default function AboutPage() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan via-purple to-cyan" />
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-border" />
 
             <div className="space-y-12">
               {timeline.map((item, index) => (
@@ -175,7 +175,7 @@ export default function AboutPage() {
                 >
                   {/* Content */}
                   <div className={`flex-1 ml-20 md:ml-0 ${index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"}`}>
-                    <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-cyan to-purple text-white text-sm font-bold mb-2">
+                    <div className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-sm font-bold mb-2">
                       {item.year}
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
@@ -183,7 +183,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* Node */}
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-cyan to-purple shadow-lg shadow-purple/30" />
+                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary shadow-lg" />
 
                   {/* Spacer for alternating layout */}
                   <div className="hidden md:block flex-1" />
@@ -206,7 +206,7 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Our{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Values
               </span>
             </h2>
@@ -223,10 +223,10 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-card/50 border border-border/30 text-center hover:border-primary/30 transition-colors"
+                className="p-6 rounded-2xl bg-card border border-border text-center hover:border-primary/30 transition-colors"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center mx-auto mb-4">
-                  <value.icon className="w-6 h-6 text-cyan" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <value.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
                 <p className="text-sm text-muted-foreground">{value.description}</p>
@@ -237,7 +237,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-gradient-to-r from-deep-blue/50 via-background to-deep-blue/50">
+      <section className="py-20 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -254,10 +254,10 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-purple/20 flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-6 h-6 text-cyan" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <stat.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent mb-1">
+                <div className="text-3xl sm:text-4xl font-bold text-primary mb-1">
                   {stat.value}
                 </div>
                 <div className="text-muted-foreground">{stat.label}</div>
@@ -279,7 +279,7 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Leadership{" "}
-              <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Team
               </span>
             </h2>
@@ -298,7 +298,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="relative aspect-square mb-4 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan/20 to-purple/20">
+                <div className="relative aspect-square mb-4 rounded-2xl overflow-hidden bg-secondary">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Users className="w-16 h-16 text-muted-foreground/30" />
                   </div>
@@ -330,7 +330,7 @@ export default function AboutPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90 glow-cyan"
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 <Link href="/contact">
                   Contact Us

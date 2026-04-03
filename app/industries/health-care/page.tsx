@@ -6,7 +6,6 @@ export default function HealthCarePage() {
     <IndustryPageTemplate
       name="Health Care"
       icon={Heart}
-      color="from-red-400 to-pink-500"
       headline="Compassionate Care, Efficient Operations"
       description="HIPAA-compliant healthcare support services that combine compassion with precision, enhancing patient experience while streamlining operations."
       features={[

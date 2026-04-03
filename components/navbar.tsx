@@ -66,7 +66,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -75,12 +75,11 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan to-purple flex items-center justify-center">
-                <span className="text-lg font-bold text-white">G</span>
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <span className="text-lg font-bold text-primary-foreground">G</span>
               </div>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan to-purple opacity-50 blur-lg group-hover:opacity-75 transition-opacity" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <span className="text-xl font-bold text-foreground">
               Goalcryst
             </span>
           </Link>
@@ -115,7 +114,7 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-1 w-56 rounded-xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-xl overflow-hidden"
+                      className="absolute top-full left-0 mt-1 w-56 rounded-xl bg-card border border-border shadow-xl overflow-hidden"
                     >
                       <div className="p-2">
                         {item.children.map((child) => (
@@ -126,7 +125,7 @@ export function Navbar() {
                               "block px-3 py-2 text-sm rounded-lg transition-colors",
                               pathname === child.href
                                 ? "text-primary bg-primary/10"
-                                : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                             )}
                           >
                             {child.name}
@@ -157,7 +156,7 @@ export function Navbar() {
             {/* Employee Login */}
             <Button
               asChild
-              className="hidden sm:flex bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90 transition-opacity glow-cyan"
+              className="hidden sm:flex bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               <Link href="/login">Employee Login</Link>
             </Button>
@@ -193,7 +192,7 @@ export function Navbar() {
                         "block px-3 py-2 text-base font-medium rounded-lg transition-colors",
                         pathname === item.href
                           ? "text-primary bg-primary/10"
-                          : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                          : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                       )}
                     >
                       {item.name}
@@ -221,7 +220,7 @@ export function Navbar() {
                 ))}
                 <Button
                   asChild
-                  className="w-full mt-4 bg-gradient-to-r from-cyan to-purple text-white"
+                  className="w-full mt-4 bg-primary text-primary-foreground"
                 >
                   <Link href="/login">Employee Login</Link>
                 </Button>

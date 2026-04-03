@@ -36,8 +36,8 @@ export default function LoginPage() {
           </Link>
 
           <div className="flex items-center gap-2 mb-8">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan to-purple flex items-center justify-center">
-              <span className="text-lg font-bold text-white">G</span>
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+              <span className="text-lg font-bold text-primary-foreground">G</span>
             </div>
             <span className="text-xl font-bold">Goalcryst</span>
           </div>
@@ -59,7 +59,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@goalcryst.com"
-                className="bg-card/50 border-border/50"
+                className="bg-card border-border"
               />
             </div>
 
@@ -75,7 +75,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  className="bg-card/50 border-border/50 pr-10"
+                  className="bg-card border-border pr-10"
                 />
                 <button
                   type="button"
@@ -100,7 +100,7 @@ export default function LoginPage() {
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-gradient-to-r from-cyan to-purple text-white hover:opacity-90"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
             >
               Sign In
             </Button>
@@ -116,12 +116,12 @@ export default function LoginPage() {
       </div>
 
       {/* Right side - Visual */}
-      <div className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-deep-blue via-background to-deep-blue relative overflow-hidden">
-        <div className="absolute inset-0 gradient-mesh opacity-30" />
+      <div className="hidden lg:flex flex-1 items-center justify-center bg-secondary relative overflow-hidden">
+        <div className="absolute inset-0 gradient-subtle opacity-50" />
         
         {/* Decorative elements */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-cyan/20 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-purple/20 blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
         
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -129,8 +129,8 @@ export default function LoginPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative text-center p-8 max-w-lg"
         >
-          <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-cyan to-purple flex items-center justify-center mx-auto mb-8">
-            <span className="text-4xl font-bold text-white">G</span>
+          <div className="w-24 h-24 rounded-3xl bg-primary flex items-center justify-center mx-auto mb-8">
+            <span className="text-4xl font-bold text-primary-foreground">G</span>
           </div>
           
           <h2 className="text-3xl font-bold mb-4">
@@ -145,19 +145,19 @@ export default function LoginPage() {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
-            className="absolute -top-10 -left-10 w-32 h-20 rounded-xl bg-card/30 border border-border/30 backdrop-blur-sm p-3"
+            className="absolute -top-10 -left-10 w-32 h-20 rounded-xl bg-card border border-border p-3"
           >
-            <div className="w-full h-2 rounded bg-cyan/30 mb-2" />
-            <div className="w-3/4 h-2 rounded bg-purple/30" />
+            <div className="w-full h-2 rounded bg-primary/20 mb-2" />
+            <div className="w-3/4 h-2 rounded bg-primary/10" />
           </motion.div>
 
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity }}
-            className="absolute -bottom-10 -right-10 w-32 h-20 rounded-xl bg-card/30 border border-border/30 backdrop-blur-sm p-3"
+            className="absolute -bottom-10 -right-10 w-32 h-20 rounded-xl bg-card border border-border p-3"
           >
-            <div className="w-full h-2 rounded bg-purple/30 mb-2" />
-            <div className="w-2/3 h-2 rounded bg-cyan/30" />
+            <div className="w-full h-2 rounded bg-primary/20 mb-2" />
+            <div className="w-2/3 h-2 rounded bg-primary/10" />
           </motion.div>
         </motion.div>
       </div>
