@@ -11,71 +11,92 @@ import {
   Heart, 
   Shield, 
   Wallet, 
-  Wifi,
+  Wifi, 
   Home,
   ArrowRight
 } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
-const industries = [
-  { 
-    name: "Aviation", 
-    icon: Plane, 
-    href: "/industries/aviation", 
-    description: "End-to-end aviation support from booking management to customer service excellence."
+const iconMap = {
+  plane: Plane,
+  landmark: Landmark,
+  brain: Brain,
+  "shopping-cart": ShoppingCart,
+  calculator: Calculator,
+  heart: Heart,
+  shield: Shield,
+  wallet: Wallet,
+  wifi: Wifi,
+  home: Home,
+}
+
+type IconName = keyof typeof iconMap
+
+const industries: {
+  name: string
+  iconName: IconName
+  href: string
+  description: string
+}[] = [
+  {
+    name: "Aviation",
+    iconName: "plane",
+    href: "/industries/aviation",
+    description: "Comprehensive aviation support from booking to baggage handling.",
   },
-  { 
-    name: "Banking & Collection", 
-    icon: Landmark, 
-    href: "/industries/banking-collection", 
-    description: "Secure, compliant banking operations and professional collection services."
+  {
+    name: "Banking & Collection",
+    iconName: "landmark",
+    href: "/industries/banking-collection",
+    description: "Secure banking operations and professional collections management.",
   },
-  { 
-    name: "AI/ML Data Solutions", 
-    icon: Brain, 
-    href: "/industries/ai-ml-data-solutions", 
-    description: "Cutting-edge AI and machine learning data annotation and processing services."
+  {
+    name: "AI/ML Data Solutions",
+    iconName: "brain",
+    href: "/industries/ai-ml-data-solutions",
+    description: "High-quality data annotation and processing for AI/ML models.",
   },
-  { 
-    name: "E-Commerce", 
-    icon: ShoppingCart, 
-    href: "/industries/e-commerce", 
-    description: "Comprehensive e-commerce support driving customer satisfaction and sales."
+  {
+    name: "E-Commerce",
+    iconName: "shopping-cart",
+    href: "/industries/e-commerce",
+    description: "End-to-end e-commerce support to boost sales and satisfaction.",
   },
-  { 
-    name: "Finance & Accounting", 
-    icon: Calculator, 
-    href: "/industries/finance-accounting", 
-    description: "Accurate financial processing and accounting services you can rely on."
+  {
+    name: "Finance & Accounting",
+    iconName: "calculator",
+    href: "/industries/finance-accounting",
+    description: "Accurate, compliant financial operations and reporting.",
   },
-  { 
-    name: "Health Care", 
-    icon: Heart, 
-    href: "/industries/health-care", 
-    description: "HIPAA-compliant healthcare support services with compassion and precision."
+  {
+    name: "Health Care",
+    iconName: "heart",
+    href: "/industries/health-care",
+    description: "HIPAA-compliant healthcare support with compassion and care.",
   },
-  { 
-    name: "Insurance", 
-    icon: Shield, 
-    href: "/industries/insurance", 
-    description: "Streamlined insurance processing from claims to policy management."
+  {
+    name: "Insurance",
+    iconName: "shield",
+    href: "/industries/insurance",
+    description: "Streamlined insurance operations from policy to claims.",
   },
-  { 
-    name: "Payroll", 
-    icon: Wallet, 
-    href: "/industries/payroll", 
-    description: "Reliable payroll processing ensuring accuracy and compliance."
+  {
+    name: "Payroll",
+    iconName: "wallet",
+    href: "/industries/payroll",
+    description: "Reliable payroll processing with guaranteed accuracy.",
   },
-  { 
-    name: "Telecom", 
-    icon: Wifi, 
-    href: "/industries/telecom", 
-    description: "24/7 telecommunications support keeping connections strong."
+  {
+    name: "Telecom",
+    iconName: "wifi",
+    href: "/industries/telecom",
+    description: "24/7 telecommunications support keeping customers connected.",
   },
-  { 
-    name: "US Title Insurance", 
-    icon: Home, 
-    href: "/industries/us-title-insurance", 
-    description: "Specialized title insurance services for the US real estate market."
+  {
+    name: "US Title Insurance",
+    iconName: "home",
+    href: "/industries/us-title-insurance",
+    description: "Expert title insurance services for the US real estate market.",
   },
 ]
 
@@ -98,14 +119,14 @@ export default function IndustriesPage() {
               <span className="text-xs font-medium text-primary uppercase tracking-wider">Industries</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-              Expertise Across{" "}
+              Industry-Specific{" "}
               <span className="text-primary">
-                Every Sector
+                Expertise
               </span>
             </h1>
             <p className="text-xl text-muted-foreground text-pretty">
-              Deep industry knowledge combined with innovative solutions to transform operations 
-              across diverse business verticals.
+              Deep domain knowledge across industries, delivering solutions that understand 
+              your unique challenges and regulatory requirements.
             </p>
           </motion.div>
         </div>
@@ -114,41 +135,69 @@ export default function IndustriesPage() {
       {/* Industries Grid */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-6">
-            {industries.map((industry, index) => (
-              <motion.div
-                key={industry.name}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-              >
-                <Link href={industry.href} className="group block h-full">
-                  <div className="relative h-full p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg overflow-hidden">
-                    <div className="relative flex items-start gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {industries.map((industry, index) => {
+              const Icon = iconMap[industry.iconName]
+              return (
+                <motion.div
+                  key={industry.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                >
+                  <Link href={industry.href} className="group block h-full">
+                    <div className="relative p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 h-full flex flex-col">
                       {/* Icon */}
-                      <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <industry.icon className="w-8 h-8 text-primary-foreground" />
+                      <div className="inline-flex w-14 h-14 rounded-xl bg-primary items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-7 h-7 text-primary-foreground" />
                       </div>
                       
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
-                        <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                          {industry.name}
-                        </h2>
-                        <p className="text-muted-foreground text-sm mb-4">
-                          {industry.description}
-                        </p>
-                        <div className="flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-all duration-300">
-                          <span>Explore</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                        {industry.name}
+                      </h3>
+                      <p className="text-muted-foreground flex-grow mb-4">
+                        {industry.description}
+                      </p>
+                      
+                      <div className="flex items-center gap-2 text-primary font-medium">
+                        <span className="text-sm">Learn More</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              )
+            })}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              {"Don't See Your Industry?"}
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              {"We're experts at adapting to new industries. Let's discuss how we can support your unique needs."}
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              <Link href="/contact">
+                Contact Us
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
     </>

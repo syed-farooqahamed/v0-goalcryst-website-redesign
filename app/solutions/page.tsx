@@ -5,38 +5,54 @@ import Link from "next/link"
 import { MessageCircle, Phone, Mail, Server, Users, ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const solutions = [
+const iconMap = {
+  "message-circle": MessageCircle,
+  phone: Phone,
+  mail: Mail,
+  server: Server,
+  users: Users,
+}
+
+type IconName = keyof typeof iconMap
+
+const solutions: {
+  name: string
+  iconName: IconName
+  href: string
+  description: string
+  features: string[]
+}[] = [
   {
     name: "Chat Support",
-    icon: MessageCircle,
+    iconName: "message-circle",
     href: "/solutions/chat-support",
     description: "Real-time intelligent chat solutions powered by AI and human expertise for instant customer engagement.",
     features: ["24/7 Availability", "Multi-language Support", "AI-Assisted Responses", "Seamless Escalation", "Proactive Engagement"],
   },
   {
     name: "Phone Support",
-    icon: Phone,
+    iconName: "phone",
     href: "/solutions/phone-support",
     description: "Professional voice support with trained specialists delivering exceptional customer experiences.",
     features: ["Trained Specialists", "Quality Monitoring", "Call Analytics", "IVR Integration", "Callback Options"],
   },
   {
     name: "Email Support",
-    icon: Mail,
+    iconName: "mail",
     href: "/solutions/email-support",
     description: "Efficient email management with quick turnaround times and intelligent prioritization.",
     features: ["Smart Routing", "Template Management", "SLA Tracking", "Sentiment Analysis", "Priority Queuing"],
   },
   {
     name: "Backend Office Support",
-    icon: Server,
+    iconName: "server",
     href: "/solutions/backend-office-support",
     description: "Comprehensive back-office operations that streamline processes and improve efficiency.",
     features: ["Data Processing", "Document Management", "Quality Assurance", "Process Automation", "Reporting"],
   },
   {
     name: "Customer Support",
-    icon: Users,
+    iconName: "users",
     href: "/solutions/customer-support",
     description: "End-to-end customer service solutions delivering omnichannel excellence.",
     features: ["Omnichannel Support", "CRM Integration", "Customer Analytics", "Retention Programs", "Feedback Management"],
@@ -79,51 +95,54 @@ export default function SolutionsPage() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-8">
-            {solutions.map((solution, index) => (
-              <motion.div
-                key={solution.name}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Link href={solution.href} className="group block">
-                  <div className="relative p-8 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg overflow-hidden">
-                    <div className="relative grid lg:grid-cols-2 gap-8 items-center">
-                      <div>
-                        {/* Icon */}
-                        <div className="inline-flex w-16 h-16 rounded-2xl bg-primary items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                          <solution.icon className="w-8 h-8 text-primary-foreground" />
-                        </div>
-                        
-                        <h2 className="text-2xl sm:text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
-                          {solution.name}
-                        </h2>
-                        <p className="text-lg text-muted-foreground mb-6">
-                          {solution.description}
-                        </p>
-                        
-                        <div className="flex items-center gap-2 text-primary font-medium">
-                          <span>Learn More</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                        </div>
-                      </div>
-                      
-                      {/* Features */}
-                      <div className="grid sm:grid-cols-2 gap-3">
-                        {solution.features.map((feature) => (
-                          <div key={feature} className="flex items-center gap-3 p-3 rounded-xl bg-secondary">
-                            <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center flex-shrink-0">
-                              <Check className="w-3 h-3 text-primary-foreground" />
-                            </div>
-                            <span className="text-sm font-medium">{feature}</span>
+            {solutions.map((solution, index) => {
+              const Icon = iconMap[solution.iconName]
+              return (
+                <motion.div
+                  key={solution.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Link href={solution.href} className="group block">
+                    <div className="relative p-8 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg overflow-hidden">
+                      <div className="relative grid lg:grid-cols-2 gap-8 items-center">
+                        <div>
+                          {/* Icon */}
+                          <div className="inline-flex w-16 h-16 rounded-2xl bg-primary items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <Icon className="w-8 h-8 text-primary-foreground" />
                           </div>
-                        ))}
+                          
+                          <h2 className="text-2xl sm:text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
+                            {solution.name}
+                          </h2>
+                          <p className="text-lg text-muted-foreground mb-6">
+                            {solution.description}
+                          </p>
+                          
+                          <div className="flex items-center gap-2 text-primary font-medium">
+                            <span>Learn More</span>
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                          </div>
+                        </div>
+                        
+                        {/* Features */}
+                        <div className="grid sm:grid-cols-2 gap-3">
+                          {solution.features.map((feature) => (
+                            <div key={feature} className="flex items-center gap-3 p-3 rounded-xl bg-secondary">
+                              <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center flex-shrink-0">
+                                <Check className="w-3 h-3 text-primary-foreground" />
+                              </div>
+                              <span className="text-sm font-medium">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
