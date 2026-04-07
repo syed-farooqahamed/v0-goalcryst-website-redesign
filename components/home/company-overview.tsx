@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Zap, Shield, Globe, TrendingUp } from "lucide-react"
+import { Zap, Shield, Globe, TrendingUp, Award } from "lucide-react"
 
 const features = [
   {
@@ -88,45 +88,17 @@ export function CompanyOverview() {
             className="relative"
           >
             <div className="relative aspect-square max-w-lg mx-auto">
-              {/* Outer subtle shadow */}
-              <div className="absolute inset-0 rounded-full bg-primary/5 blur-3xl" />
-              
               {/* Main circle */}
-              <div className="absolute inset-8 rounded-full bg-card border border-border flex items-center justify-center overflow-hidden shadow-xl">
+              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-card via-primary/5 to-secondary/5 border border-border flex items-center justify-center overflow-hidden shadow-xl">
                 {/* Inner content */}
                 <div className="text-center p-8">
+                  <Award className="w-12 h-12 text-primary mb-4 mx-auto" />
                   <div className="text-6xl sm:text-7xl font-bold text-primary mb-2">
                     15+
                   </div>
                   <div className="text-muted-foreground">Years of Excellence</div>
                 </div>
               </div>
-
-              {/* Orbiting elements */}
-              {[0, 72, 144, 216, 288].map((rotation, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute top-1/2 left-1/2 w-3 h-3"
-                  style={{
-                    transform: `rotate(${rotation}deg) translateX(180px)`,
-                  }}
-                  animate={{
-                    rotate: [rotation, rotation + 360],
-                  }}
-                  transition={{
-                    duration: 25,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                >
-                  <div 
-                    className="w-3 h-3 rounded-full bg-primary"
-                    style={{
-                      opacity: 0.3 + (i * 0.15),
-                    }}
-                  />
-                </motion.div>
-              ))}
 
               {/* Corner decorations */}
               <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-border rounded-tr-3xl" />

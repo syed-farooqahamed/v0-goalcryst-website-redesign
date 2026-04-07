@@ -73,15 +73,12 @@ export function Navbar() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-lg font-bold text-primary-foreground">G</span>
-              </div>
-            </div>
-            <span className="text-xl font-bold text-foreground">
-              Goalcryst
-            </span>
+          <Link href="/" className="flex items-center group">
+            <img
+              src="/logo.png"
+              alt="Goalcryst"
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -158,7 +155,7 @@ export function Navbar() {
               asChild
               className="hidden sm:flex bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
-              <Link href="/login">Employee Login</Link>
+              <a href="https://goalcrystindiaprivatelimited.greythr.com/uas/portal/auth/login?login_challenge=rx-EyE7tNEHx7cE2v_O-oN9I0LWUzS6JKdV8LyY7zc2UypSC4h0CUQj0YnmTq9bIQiOS7XTugWChYYFiH0lFtx_7Iwu8v0A-ScRVFr52sZmL38S0UBmw1jBHs2VofnNX92_LDcrUZPf_XMXR0LRNVIxGoMPrzOxSAf7u2xUA6vM1KYE064VK0xtpq_pgB82gixt7cuqv8OKUDLkl0dY2FvKwzcDShNCXh4dU5MR3oD0rIXS_jfz19ahq23nJ6eVa0KCJXWQRS3xoZOwIBO1BXpk3k6bKFqL1ITNAwAgTgf07bvCeKtj1g3BIi24PU7lgthbSJsbeRDUcAVH6AGlGaKAf6Ocq8qBu83svEkPGTDqmukHYqzoRF1upubA_82hBh_GfWGN0OCa9wXBoQtlUe346V6T3_Ipobhaxep_i48tyirZtp3JoXwe36kVZo3173CWD5tV0-8j76f1zwEErBDB8nlyOI514bgG5kik97phZtth8Nm7n0Cs7pNGxrbazlnPIOaNMpP94NppQxNyHadm-fXLNUor89kn1YhUeDRQ6d4CJaM-8-uJDWCyT2CKgNTy_Y6Ncq2IYer0F7lrEQndyiAcPznMAonzyJ7Oz9ByW_x3VNTVV1kahCBOjTsSUP6wtPLTHdkU9T17mfTy47wL5VLqtyoUIrhNYpU68MoozcT45H3zrU1odY2hvRK2yShbvc5X6TenQrM7xyxSdrVidMXALhWuRy2gNrV0urhkNAQ17fNKqOHITSvC4xSRadtrifKlYL4P_OGrZNlUQOLdl8lIrVlcYgporQxoEHVuEA9v4mmhNSSrIL93AfBGYHGBEjGv1DojohSw8dp6m8uxfW50838Vys-ZWIV1RpBR1NrGeP_ujlpebAMpzs2Tx4KBKNKXtSdO3-gsCc5tZrcKhuXEMJaniiz2VGGFvvH4lvsALBCG_RBDgvlZMIVz3jkOmoJKD9fSpCMbVy-oloSADF8lQMhTQJs646bp2JAvmyIGXNwekOPXbbGLBcX0PmrSQuNbvNVcSz37wvi0qigwxjhpc5J9OCoJnTKRhXqvmyC7c-TMYKmupCaAUn6ugtLd0uoQowm6qEUABmzfMGERFw-r6mfMyzkb4a6Lk9CKjesJhcOCp3aALkfwYs74DtxpNg0kKdcHfFucDxKQL0xFRQzNoyH-pt8TRjjW3c3LjZyzsMBmoaXeiXLhFZLn2yGQpRynZHeQzURgYQoHLNhaSmgfPUVwEEwDUpv9tHvbucArAQaUcR-BNT1Da_z4CizYNB336uqBZuPpu4JfGgEu-21GBVpFhiTJSCqiP4aRCiHl_vPjOnBugZB67EZQ-tfHIrQuNCJIPo_kD5T1EAQi2FmbwGU1VE-ioevYxdYjZFeGwM-JrOfG1omEDjHGEFh3rgfhEJW5ZCr2UYb_EEbFtCaCKG5uWtd4zCOS-COs%3D" target="_blank" rel="noopener noreferrer">Employee Login</a>
             </Button>
 
             {/* Mobile menu button */}
@@ -222,7 +219,7 @@ export function Navbar() {
                   asChild
                   className="w-full mt-4 bg-primary text-primary-foreground"
                 >
-                  <Link href="/login">Employee Login</Link>
+                  <a href="https://goalcrystindiaprivatelimited.greythr.com/uas/portal/auth/login?login_challenge=rx-EyE7tNEHx7cE2v_O-oN9I0LWUzS6JKdV8LyY7zc2UypSC4h0CUQj0YnmTq9bIQiOS7XTugWChYYFiH0lFtx_7Iwu8v0A-ScRVFr52sZmL38S0UBmw1jBHs2VofnNX92_LDcrUZPf_XMXR0LRNVIxGoMPrzOxSAf7u2xUA6vM1KYE064VK0xtpq_pgB82gixt7cuqv8OKUDLkl0dY2FvKwzcDShNCXh4dU5MR3oD0rIXS_jfz19ahq23nJ6eVa0KCJXWQRS3xoZOwIBO1BXpk3k6bKFqL1ITNAwAgTgf07bvCeKtj1g3BIi24PU7lgthbSJsbeRDUcAVH6AGlGaKAf6Ocq8qBu83svEkPGTDqmukHYqzoRF1upubA_82hBh_GfWGN0OCa9wXBoQtlUe346V6T3_Ipobhaxep_i48tyirZtp3JoXwe36kVZo3173CWD5tV0-8j76f1zwEErBDB8nlyOI514bgG5kik97phZtth8Nm7n0Cs7pNGxrbazlnPIOaNMpP94NppQxNyHadm-fXLNUor89kn1YhUeDRQ6d4CJaM-8-uJDWCyT2CKgNTy_Y6Ncq2IYer0F7lrEQndyiAcPznMAonzyJ7Oz9ByW_x3VNTVV1kahCBOjTsSUP6wtPLTHdkU9T17mfTy47wL5VLqtyoUIrhNYpU68MoozcT45H3zrU1odY2hvRK2yShbvc5X6TenQrM7xyxSdrVidMXALhWuRy2gNrV0urhkNAQ17fNKqOHITSvC4xSRadtrifKlYL4P_OGrZNlUQOLdl8lIrVlcYgporQxoEHVuEA9v4mmhNSSrIL93AfBGYHGBEjGv1DojohSw8dp6m8uxfW50838Vys-ZWIV1RpBR1NrGeP_ujlpebAMpzs2Tx4KBKNKXtSdO3-gsCc5tZrcKhuXEMJaniiz2VGGFvvH4lvsALBCG_RBDgvlZMIVz3jkOmoJKD9fSpCMbVy-oloSADF8lQMhTQJs646bp2JAvmyIGXNwekOPXbbGLBcX0PmrSQuNbvNVcSz37wvi0qigwxjhpc5J9OCoJnTKRhXqvmyC7c-TMYKmupCaAUn6ugtLd0uoQowm6qEUABmzfMGERFw-r6mfMyzkb4a6Lk9CKjesJhcOCp3aALkfwYs74DtxpNg0kKdcHfFucDxKQL0xFRQzNoyH-pt8TRjjW3c3LjZyzsMBmoaXeiXLhFZLn2yGQpRynZHeQzURgYQoHLNhaSmgfPUVwEEwDUpv9tHvbucArAQaUcR-BNT1Da_z4CizYNB336uqBZuPpu4JfGgEu-21GBVpFhiTJSCqiP4aRCiHl_vPjOnBugZB67EZQ-tfHIrQuNCJIPo_kD5T1EAQi2FmbwGU1VE-ioevYxdYjZFeGwM-JrOfG1omEDjHGEFh3rgfhEJW5ZCr2UYb_EEbFtCaCKG5uWtd4zCOS-COs%3D" target="_blank" rel="noopener noreferrer">Employee Login</a>
                 </Button>
               </div>
             </motion.div>

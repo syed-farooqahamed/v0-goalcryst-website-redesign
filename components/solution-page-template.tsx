@@ -4,11 +4,27 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Check, ArrowLeft } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import {
+  MessageCircle,
+  Phone,
+  Mail,
+  Server,
+  Users,
+} from "lucide-react"
+
+const iconMap = {
+  "message-circle": MessageCircle,
+  phone: Phone,
+  mail: Mail,
+  server: Server,
+  users: Users,
+}
+
+type IconName = keyof typeof iconMap
 
 interface SolutionPageProps {
   name: string
-  icon: LucideIcon
+  iconName: IconName
   headline: string
   description: string
   features: {
@@ -25,13 +41,14 @@ interface SolutionPageProps {
 
 export function SolutionPageTemplate({
   name,
-  icon: Icon,
+  iconName,
   headline,
   description,
   features,
   benefits,
   process,
 }: SolutionPageProps) {
+  const Icon = iconMap[iconName]
   return (
     <>
       {/* Hero */}

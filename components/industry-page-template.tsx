@@ -4,11 +4,37 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Check, ArrowLeft } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import {
+  Plane,
+  Landmark,
+  Brain,
+  ShoppingCart,
+  Calculator,
+  Heart,
+  Shield,
+  Wallet,
+  Wifi,
+  Home,
+} from "lucide-react"
+
+const iconMap = {
+  plane: Plane,
+  landmark: Landmark,
+  brain: Brain,
+  "shopping-cart": ShoppingCart,
+  calculator: Calculator,
+  heart: Heart,
+  shield: Shield,
+  wallet: Wallet,
+  wifi: Wifi,
+  home: Home,
+}
+
+type IconName = keyof typeof iconMap
 
 interface IndustryPageProps {
   name: string
-  icon: LucideIcon
+  iconName: IconName
   headline: string
   description: string
   features: string[]
@@ -24,13 +50,14 @@ interface IndustryPageProps {
 
 export function IndustryPageTemplate({
   name,
-  icon: Icon,
+  iconName,
   headline,
   description,
   features,
   benefits,
   stats,
 }: IndustryPageProps) {
+  const Icon = iconMap[iconName]
   return (
     <>
       {/* Hero */}

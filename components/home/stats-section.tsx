@@ -84,9 +84,9 @@ export function StatsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
+              <div className="text-center p-3 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg h-42">
                 {/* Value */}
-                <div className="relative text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-2">
+                <div className="relative text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2">
                   <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                 </div>
                 

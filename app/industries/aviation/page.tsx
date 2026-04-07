@@ -1,11 +1,10 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
-import { Plane } from "lucide-react"
 
 export default function AviationPage() {
   return (
     <IndustryPageTemplate
       name="Aviation"
-      icon={Plane}
+      iconName="plane"
       headline="Elevating Aviation Operations to New Heights"
       description="From booking management to in-flight services, we provide comprehensive aviation support that enhances passenger experience and operational efficiency."
       features={[

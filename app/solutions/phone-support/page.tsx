@@ -1,11 +1,10 @@
 import { SolutionPageTemplate } from "@/components/solution-page-template"
-import { Phone } from "lucide-react"
 
 export default function PhoneSupportPage() {
   return (
     <SolutionPageTemplate
       name="Phone Support"
-      icon={Phone}
+      iconName="phone"
       headline="Professional Voice Support That Builds Trust"
       description="Expert phone support with trained specialists who represent your brand with professionalism and care."
       features={[

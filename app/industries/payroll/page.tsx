@@ -1,11 +1,10 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
-import { Wallet } from "lucide-react"
 
 export default function PayrollPage() {
   return (
     <IndustryPageTemplate
       name="Payroll"
-      icon={Wallet}
+      iconName="wallet"
       headline="Reliable Payroll Processing Excellence"
       description="Accurate, timely, and compliant payroll processing services that ensure your employees are paid right, every time."
       features={[

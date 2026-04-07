@@ -1,11 +1,10 @@
 import { SolutionPageTemplate } from "@/components/solution-page-template"
-import { Server } from "lucide-react"
 
 export default function BackendOfficeSupportPage() {
   return (
     <SolutionPageTemplate
       name="Backend Office Support"
-      icon={Server}
+      iconName="server"
       headline="Streamlined Back-Office Operations"
       description="Comprehensive back-office support that handles the heavy lifting so you can focus on growing your business."
       features={[

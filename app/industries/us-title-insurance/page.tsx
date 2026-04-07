@@ -1,11 +1,10 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
-import { Home } from "lucide-react"
 
 export default function UsTitleInsurancePage() {
   return (
     <IndustryPageTemplate
       name="US Title Insurance"
-      icon={Home}
+      iconName="home"
       headline="Expert US Title Insurance Solutions"
       description="Specialized title insurance services supporting the US real estate market with accuracy, speed, and compliance."
       features={[

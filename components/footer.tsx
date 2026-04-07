@@ -45,11 +45,12 @@ export function Footer() {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-lg font-bold text-primary-foreground">G</span>
-              </div>
-              <span className="text-xl font-bold">Goalcryst</span>
+            <Link href="/" className="flex items-center mb-6">
+              <img
+                src="/logo.png"
+                alt="Goalcryst"
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Redefining intelligent business operations through cutting-edge technology 
@@ -58,15 +59,15 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contact@goalcryst.com</span>
+                <span>info@goalcryst.com</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>+1 (555) 123-4567</span>
+                <span>080-43704078</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>Global Operations Center</span>
+                <span>Bengaluru, Karnataka, India</span>
               </div>
             </div>
           </div>

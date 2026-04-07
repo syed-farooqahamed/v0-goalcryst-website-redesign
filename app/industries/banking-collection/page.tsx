@@ -1,11 +1,10 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
-import { Landmark } from "lucide-react"
 
 export default function BankingCollectionPage() {
   return (
     <IndustryPageTemplate
       name="Banking & Collection"
-      icon={Landmark}
+      iconName="landmark"
       headline="Secure Banking Solutions & Professional Collections"
       description="Compliant, secure, and efficient banking operations paired with professional collection services that maintain customer relationships."
       features={[

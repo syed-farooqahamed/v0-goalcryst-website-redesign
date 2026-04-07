@@ -109,7 +109,7 @@ export function WorkflowSection() {
                     {parseInt(step.number)}
                   </div>
 
-                  <div className="lg:mt-8 p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
+                  <div className="lg:mt-8 p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg h-56">
                     {/* Icon */}
                     <div className="w-12 h-12 rounded-xl bg-secondary border border-border flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <step.icon className="w-6 h-6 text-primary" />

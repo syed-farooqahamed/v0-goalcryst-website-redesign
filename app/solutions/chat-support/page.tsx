@@ -1,11 +1,10 @@
 import { SolutionPageTemplate } from "@/components/solution-page-template"
-import { MessageCircle } from "lucide-react"
 
 export default function ChatSupportPage() {
   return (
     <SolutionPageTemplate
       name="Chat Support"
-      icon={MessageCircle}
+      iconName="message-circle"
       headline="Intelligent Chat Support That Never Sleeps"
       description="Deliver instant, personalized customer experiences with our AI-powered chat support solutions backed by human expertise."
       features={[

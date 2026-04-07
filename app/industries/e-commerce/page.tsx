@@ -1,11 +1,10 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
-import { ShoppingCart } from "lucide-react"
 
 export default function EcommercePage() {
   return (
     <IndustryPageTemplate
       name="E-Commerce"
-      icon={ShoppingCart}
+      iconName="shopping-cart"
       headline="Driving E-Commerce Success at Scale"
       description="Comprehensive e-commerce support solutions that enhance customer satisfaction, boost conversions, and streamline operations."
       features={[

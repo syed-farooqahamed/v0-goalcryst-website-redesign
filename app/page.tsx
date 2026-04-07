@@ -4,7 +4,7 @@ import { IndustriesSection } from "@/components/home/industries-section"
 import { SolutionsSection } from "@/components/home/solutions-section"
 import { WorkflowSection } from "@/components/home/workflow-section"
 import { StatsSection } from "@/components/home/stats-section"
-import { GlobalPresence } from "@/components/home/global-presence"
+import { MajorClientele } from "@/components/home/major-clientele"
 import { CtaSection } from "@/components/home/cta-section"
 
 export default function HomePage() {
@@ -16,7 +16,7 @@ export default function HomePage() {
       <SolutionsSection />
       <WorkflowSection />
       <StatsSection />
-      <GlobalPresence />
+      <MajorClientele />
       <CtaSection />
     </>
   )

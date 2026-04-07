@@ -6,11 +6,21 @@ import Link from "next/link"
 import { MessageCircle, Phone, Mail, Server, Users, ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const solutions = [
+const iconMap = {
+  "message-circle": MessageCircle,
+  phone: Phone,
+  mail: Mail,
+  server: Server,
+  users: Users,
+} as const
+
+type IconName = keyof typeof iconMap
+
+const solutions: Array<{ id: string; name: string; iconName: IconName; href: string; description: string; features: string[] }> = [
   {
     id: "chat",
     name: "Chat Support",
-    icon: MessageCircle,
+    iconName: "message-circle",
     href: "/solutions/chat-support",
     description: "Real-time intelligent chat solutions powered by AI and human expertise.",
     features: ["24/7 Availability", "Multi-language Support", "AI-Assisted Responses", "Seamless Escalation"],
@@ -18,7 +28,7 @@ const solutions = [
   {
     id: "phone",
     name: "Phone Support",
-    icon: Phone,
+    iconName: "phone",
     href: "/solutions/phone-support",
     description: "Professional voice support that enhances customer experience.",
     features: ["Trained Specialists", "Quality Monitoring", "Call Analytics", "Callback Options"],
@@ -26,7 +36,7 @@ const solutions = [
   {
     id: "email",
     name: "Email Support",
-    icon: Mail,
+    iconName: "mail",
     href: "/solutions/email-support",
     description: "Efficient email management with quick turnaround times.",
     features: ["Smart Routing", "Template Management", "SLA Tracking", "Sentiment Analysis"],
@@ -34,7 +44,7 @@ const solutions = [
   {
     id: "backend",
     name: "Backend Office Support",
-    icon: Server,
+    iconName: "server",
     href: "/solutions/backend-office-support",
     description: "Comprehensive back-office operations that keep your business running.",
     features: ["Data Processing", "Document Management", "Quality Assurance", "Reporting"],
@@ -42,7 +52,7 @@ const solutions = [
   {
     id: "customer",
     name: "Customer Support",
-    icon: Users,
+    iconName: "users",
     href: "/solutions/customer-support",
     description: "End-to-end customer service solutions tailored to your needs.",
     features: ["Omnichannel Support", "CRM Integration", "Customer Analytics", "Retention Programs"],
@@ -84,29 +94,31 @@ export function SolutionsSection() {
 
         {/* Solutions cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {solutions.map((solution, index) => (
-            <motion.div
-              key={solution.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredId(solution.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              className={`relative group ${index === solutions.length - 1 ? "md:col-span-2 lg:col-span-1" : ""}`}
-            >
-              <Link href={solution.href} className="block h-full">
-                <div className={`
-                  relative h-full rounded-2xl border transition-all duration-300
-                  ${hoveredId === solution.id 
-                    ? "bg-card border-primary/30 shadow-xl" 
-                    : "bg-card border-border"
-                  }
-                `}>
-                  <div className="relative p-6 h-full flex flex-col">
-                    {/* Icon */}
-                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 bg-primary/10 border border-primary/20">
-                      <solution.icon className="w-7 h-7 text-primary" />
-                    </div>
+          {solutions.map((solution, index) => {
+            const Icon = iconMap[solution.iconName]
+            return (
+              <motion.div
+                key={solution.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                onMouseEnter={() => setHoveredId(solution.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                className={`relative group ${index === solutions.length - 1 ? "md:col-span-2 lg:col-span-1" : ""}`}
+              >
+                <Link href={solution.href} className="block h-full">
+                  <div className={`
+                    relative h-full rounded-2xl border transition-all duration-300
+                    ${hoveredId === solution.id
+                      ? "bg-card border-primary/30 shadow-xl"
+                      : "bg-card border-border"
+                    }
+                  `}>
+                    <div className="relative p-6 h-full flex flex-col">
+                      {/* Icon */}
+                      <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 bg-primary/10 border border-primary/20">
+                        <Icon className="w-7 h-7 text-primary" />
+                      </div>
 
                     {/* Content */}
                     <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
@@ -133,9 +145,10 @@ export function SolutionsSection() {
                     </div>
                   </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+                </Link>
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* CTA */}

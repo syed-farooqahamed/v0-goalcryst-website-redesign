@@ -9,28 +9,16 @@ import { Mail, Phone, MapPin, Clock, Send, CheckCircle, Linkedin, Twitter } from
 
 const offices = [
   {
-    city: "New York",
-    address: "350 Fifth Avenue, Suite 5100",
-    country: "United States",
-    phone: "+1 (555) 123-4567",
-  },
-  {
-    city: "London",
-    address: "30 St Mary Axe",
-    country: "United Kingdom",
-    phone: "+44 20 7123 4567",
-  },
-  {
-    city: "Singapore",
-    address: "1 Raffles Place, Tower 2",
-    country: "Singapore",
-    phone: "+65 6123 4567",
-  },
-  {
-    city: "Mumbai",
-    address: "Bandra Kurla Complex",
+    city: "Bengaluru",
+    address: "#11, Sai Samruddi Building, 11th A Main Road, 5th Block, Jayanagar",
     country: "India",
-    phone: "+91 22 1234 5678",
+    phone: "080-43704078",
+  },
+  {
+    city: "Mysuru",
+    address: "#2913, CH-56, 2nd Floor, 4th Cross, Opposite to TTL College, Saraswathipuram",
+    country: "India",
+    phone: "0821-4191187",
   },
 ]
 
@@ -45,14 +33,20 @@ export default function ContactPage() {
     message: "",
   })
 
+  const handlePhoneChange = (value: string) => {
+    // Only allow numbers, hyphens, parentheses, and plus sign
+    const filteredValue = value.replace(/[^0-9\-\(\)\+]/g, '')
+    setFormData({ ...formData, phone: filteredValue })
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormState("submitting")
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500))
     setFormState("success")
-    
+
     // Reset after delay
     setTimeout(() => {
       setFormState("idle")
@@ -156,7 +150,7 @@ export default function ContactPage() {
                       id="phone"
                       type="tel"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) => handlePhoneChange(e.target.value)}
                       placeholder="+1 (555) 000-0000"
                       className="bg-card border-border"
                     />
@@ -232,8 +226,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email Us</h3>
-                    <p className="text-muted-foreground">contact@goalcryst.com</p>
-                    <p className="text-muted-foreground">sales@goalcryst.com</p>
+                    <p className="text-muted-foreground">info@goalcryst.com</p>
                   </div>
                 </div>
 
@@ -243,8 +236,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Call Us</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                    <p className="text-sm text-muted-foreground/70">Mon-Fri 9AM-6PM EST</p>
+                    <p className="text-muted-foreground">080-43704078</p>
+                    <p className="text-sm text-muted-foreground/70">Mon-Fri 9AM-6PM IST</p>
                   </div>
                 </div>
 
@@ -296,32 +289,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map placeholder */}
-      <section className="py-20 bg-secondary/30">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative rounded-3xl overflow-hidden border border-border bg-card"
-          >
-            <div className="aspect-[21/9] flex items-center justify-center bg-secondary">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Global Presence</h3>
-                <p className="text-muted-foreground">Offices in 8+ cities across 4 continents</p>
-              </div>
-            </div>
-            
-            {/* Decorative corners */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-border rounded-tl-3xl" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-border rounded-br-3xl" />
-          </motion.div>
-        </div>
-      </section>
+
     </>
   )
 }

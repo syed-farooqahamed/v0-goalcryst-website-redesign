@@ -57,31 +57,31 @@ const values = [
 ]
 
 const leadership = [
-  { name: "Sarah Chen", role: "Chief Executive Officer", image: "/placeholder.svg" },
-  { name: "Michael Rodriguez", role: "Chief Operations Officer", image: "/placeholder.svg" },
-  { name: "Priya Sharma", role: "Chief Technology Officer", image: "/placeholder.svg" },
-  { name: "David Kim", role: "Chief Financial Officer", image: "/placeholder.svg" },
+  { name: "Sarah Chen", role: "Chief Executive Officer", image: "/a1.jpg" },
+  { name: "Michael Rodriguez", role: "Chief Operations Officer", image: "/a2.jpg" },
+  { name: "Priya Sharma", role: "Chief Technology Officer", image: "/a3.jpg" },
+  { name: "David Kim", role: "Chief Financial Officer", image: "/a4.jpg" },
 ]
 
 export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 gradient-subtle" />
-        
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            className="text-center max-w-4xl mx-auto"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <span className="text-xs font-medium text-primary uppercase tracking-wider">About Us</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
               Pioneering the Future of{" "}
               <span className="text-primary">
                 Business Operations
@@ -299,9 +299,11 @@ export default function AboutPage() {
                 className="group"
               >
                 <div className="relative aspect-square mb-4 rounded-2xl overflow-hidden bg-secondary">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Users className="w-16 h-16 text-muted-foreground/30" />
-                  </div>
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-semibold">{person.name}</h3>
                 <p className="text-sm text-muted-foreground">{person.role}</p>

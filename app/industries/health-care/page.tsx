@@ -1,11 +1,10 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
-import { Heart } from "lucide-react"
 
 export default function HealthCarePage() {
   return (
     <IndustryPageTemplate
       name="Health Care"
-      icon={Heart}
+      iconName="heart"
       headline="Compassionate Care, Efficient Operations"
       description="HIPAA-compliant healthcare support services that combine compassion with precision, enhancing patient experience while streamlining operations."
       features={[

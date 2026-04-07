@@ -7,21 +7,21 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react"
 const categories = ["All", "Office", "Events", "Team", "Workspace", "Awards"]
 
 const galleryItems = [
-  { id: 1, category: "Office", title: "Global HQ Lobby", size: "large" },
-  { id: 2, category: "Team", title: "Customer Success Team", size: "small" },
-  { id: 3, category: "Events", title: "Annual Summit 2024", size: "medium" },
-  { id: 4, category: "Workspace", title: "Operations Center", size: "small" },
-  { id: 5, category: "Awards", title: "Excellence Award 2024", size: "medium" },
-  { id: 6, category: "Office", title: "Singapore Office", size: "small" },
-  { id: 7, category: "Team", title: "Engineering Team", size: "large" },
-  { id: 8, category: "Events", title: "Team Building", size: "small" },
-  { id: 9, category: "Workspace", title: "Collaboration Space", size: "medium" },
-  { id: 10, category: "Office", title: "London Office", size: "small" },
-  { id: 11, category: "Awards", title: "Best Employer 2024", size: "small" },
-  { id: 12, category: "Events", title: "Client Summit", size: "large" },
-  { id: 13, category: "Team", title: "Support Team", size: "medium" },
-  { id: 14, category: "Workspace", title: "Training Room", size: "small" },
-  { id: 15, category: "Office", title: "Mumbai Office", size: "small" },
+  { id: 1, category: "Office", title: "Global HQ Lobby", size: "large", image: "/g1.jpg" },
+  { id: 2, category: "Team", title: "Customer Success Team", size: "small", image: "/g2.jpg" },
+  { id: 3, category: "Events", title: "Annual Summit 2024", size: "medium", image: "/g3.jpg" },
+  { id: 4, category: "Workspace", title: "Operations Center", size: "small", image: "/g4.jpg" },
+  { id: 5, category: "Awards", title: "Excellence Award 2024", size: "medium", image: "/g5.jpg" },
+  { id: 6, category: "Office", title: "Singapore Office", size: "small", image: "/g6.jpg" },
+  { id: 7, category: "Team", title: "Engineering Team", size: "large", image: "/g7.jpg" },
+  { id: 8, category: "Events", title: "Team Building", size: "small", image: "/g8.jpg" },
+  { id: 9, category: "Workspace", title: "Collaboration Space", size: "medium", image: "/g9.jpg" },
+  { id: 10, category: "Office", title: "London Office", size: "small", image: "/g10.jpg" },
+  { id: 11, category: "Awards", title: "Best Employer 2024", size: "small", image: "/g11.jpg" },
+  { id: 12, category: "Events", title: "Client Summit", size: "large", image: "/g12.jpg" },
+  { id: 13, category: "Team", title: "Support Team", size: "medium", image: "/g13.jpg" },
+  { id: 14, category: "Workspace", title: "Training Room", size: "small", image: "/g14.jpg" },
+  { id: 15, category: "Office", title: "Mumbai Office", size: "small", image: "/g15.jpg" },
 ]
 
 export default function GalleryPage() {
@@ -112,19 +112,13 @@ export default function GalleryPage() {
                   onClick={() => setSelectedImage(item.id)}
                   className="group relative w-full rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all"
                 >
-                  {/* Placeholder for image */}
-                  <div 
-                    className={`w-full bg-secondary flex items-center justify-center ${
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className={`w-full object-cover ${
                       item.size === "large" ? "h-80" : item.size === "medium" ? "h-64" : "h-48"
                     }`}
-                  >
-                    <div className="text-center p-6">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-muted-foreground/50">{item.id}</span>
-                      </div>
-                      <span className="text-muted-foreground/50 text-sm">{item.category}</span>
-                    </div>
-                  </div>
+                  />
                   
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
@@ -179,16 +173,11 @@ export default function GalleryPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="rounded-2xl overflow-hidden bg-card border border-border">
-              <div className="aspect-video bg-secondary flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-4xl font-bold text-muted-foreground/50">
-                      {filteredItems[currentIndex]?.id}
-                    </span>
-                  </div>
-                  <span className="text-muted-foreground/50">{filteredItems[currentIndex]?.category}</span>
-                </div>
-              </div>
+              <img
+                src={filteredItems[currentIndex]?.image}
+                alt={filteredItems[currentIndex]?.title}
+                className="w-full aspect-video object-cover"
+              />
               <div className="p-6">
                 <span className="text-xs text-primary uppercase tracking-wider">
                   {filteredItems[currentIndex]?.category}

@@ -1,11 +1,10 @@
 import { SolutionPageTemplate } from "@/components/solution-page-template"
-import { Users } from "lucide-react"
 
 export default function CustomerSupportPage() {
   return (
     <SolutionPageTemplate
       name="Customer Support"
-      icon={Users}
+      iconName="users"
       headline="End-to-End Customer Support Excellence"
       description="Comprehensive omnichannel support solutions that deliver exceptional experiences across every touchpoint."
       features={[

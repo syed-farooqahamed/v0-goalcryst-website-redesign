@@ -3,20 +3,24 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { 
-  ArrowRight, 
-  MapPin, 
-  Briefcase, 
-  Heart, 
-  GraduationCap, 
+import {
+  ArrowRight,
+  MapPin,
+  Briefcase,
+  Heart,
+  GraduationCap,
   Globe,
   Coffee,
   Laptop,
-  Plane
+  Plane,
+  Search,
+  Filter
 } from "lucide-react"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
-const departments = ["All", "Engineering", "Operations", "Sales", "Support", "Marketing", "HR"]
+const departments = ["Engineering", "Operations", "Sales", "Support", "Marketing", "HR"]
+const workModes = ["Remote", "On-site"]
+const jobTypes = ["Full-time", "Part-time"]
 
 const jobs = [
   {
@@ -25,6 +29,7 @@ const jobs = [
     department: "Engineering",
     location: "Remote / New York",
     type: "Full-time",
+    workMode: "Remote",
     description: "Build and scale our intelligent operations platform.",
   },
   {
@@ -33,6 +38,7 @@ const jobs = [
     department: "Support",
     location: "London",
     type: "Full-time",
+    workMode: "On-site",
     description: "Drive customer satisfaction and retention across our enterprise clients.",
   },
   {
@@ -41,6 +47,7 @@ const jobs = [
     department: "Operations",
     location: "Mumbai",
     type: "Full-time",
+    workMode: "On-site",
     description: "Lead a team of specialists delivering world-class BPO services.",
   },
   {
@@ -49,6 +56,7 @@ const jobs = [
     department: "Engineering",
     location: "Remote",
     type: "Full-time",
+    workMode: "Remote",
     description: "Develop AI solutions that power our intelligent automation tools.",
   },
   {
@@ -57,6 +65,7 @@ const jobs = [
     department: "Sales",
     location: "Singapore",
     type: "Full-time",
+    workMode: "On-site",
     description: "Expand our client portfolio across Asia-Pacific markets.",
   },
   {
@@ -65,6 +74,7 @@ const jobs = [
     department: "Operations",
     location: "Manila",
     type: "Full-time",
+    workMode: "On-site",
     description: "Ensure service excellence through rigorous quality monitoring.",
   },
   {
@@ -73,6 +83,7 @@ const jobs = [
     department: "Marketing",
     location: "Dubai",
     type: "Full-time",
+    workMode: "On-site",
     description: "Drive brand awareness and lead generation campaigns.",
   },
   {
@@ -81,6 +92,7 @@ const jobs = [
     department: "HR",
     location: "Remote / Global",
     type: "Full-time",
+    workMode: "Remote",
     description: "Support our growing teams with strategic HR initiatives.",
   },
 ]
@@ -114,11 +126,51 @@ const culture = [
 ]
 
 export default function CareersPage() {
-  const [selectedDepartment, setSelectedDepartment] = useState("All")
+  const [searchQuery, setSearchQuery] = useState("")
+  const [isFilterOpen, setIsFilterOpen] = useState(false)
+  const [selectedDepartments, setSelectedDepartments] = useState<string[]>([])
+  const [selectedWorkModes, setSelectedWorkModes] = useState<string[]>([])
+  const [selectedJobTypes, setSelectedJobTypes] = useState<string[]>([])
+  const filterPanelRef = useRef<HTMLDivElement>(null)
 
-  const filteredJobs = selectedDepartment === "All" 
-    ? jobs 
-    : jobs.filter(job => job.department === selectedDepartment)
+  const filteredJobs = jobs.filter(job => {
+    const matchesSearch = searchQuery === "" ||
+      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.description.toLowerCase().includes(searchQuery.toLowerCase())
+    const matchesDepartment = selectedDepartments.length === 0 || selectedDepartments.includes(job.department)
+    const matchesWorkMode = selectedWorkModes.length === 0 || selectedWorkModes.includes(job.workMode)
+    const matchesJobType = selectedJobTypes.length === 0 || selectedJobTypes.includes(job.type)
+    return matchesSearch && matchesDepartment && matchesWorkMode && matchesJobType
+  })
+
+  const activeFiltersCount = selectedDepartments.length + selectedWorkModes.length + selectedJobTypes.length
+
+  // Close filter panel when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (filterPanelRef.current && !filterPanelRef.current.contains(event.target as Node)) {
+        setIsFilterOpen(false)
+      }
+    }
+
+    if (isFilterOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isFilterOpen])
+
+  const handleApplyFilters = () => {
+    setIsFilterOpen(false)
+  }
+
+  const handleClearAll = () => {
+    setSelectedDepartments([])
+    setSelectedWorkModes([])
+    setSelectedJobTypes([])
+  }
 
   return (
     <>
@@ -277,22 +329,134 @@ export default function CareersPage() {
             </p>
           </motion.div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {departments.map((dept) => (
-              <button
-                key={dept}
-                onClick={() => setSelectedDepartment(dept)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  selectedDepartment === dept
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {dept}
+          {/* Search and Filters */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            {/* Search */}
+            <div className="relative flex-1 max-w-md">
+              <input
+                type="text"
+                placeholder="Search roles..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-4 pr-10 py-2 rounded-lg bg-card border border-border focus:border-primary focus:outline-none text-sm"
+              />
+              <button className="absolute right-2 top-1/2 -translate-y-1/2 p-1">
+                <Search className="w-4 h-4 text-muted-foreground" />
               </button>
-            ))}
+            </div>
+
+            {/* Filter Button */}
+            <button
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className="px-4 py-2 rounded-lg bg-secondary text-muted-foreground hover:text-foreground flex items-center gap-2 transition-colors"
+            >
+              <Filter className="w-4 h-4" />
+              Filters
+              {activeFiltersCount > 0 && (
+                <span className="bg-primary text-primary-foreground rounded-full px-2 py-0.5 text-xs">
+                  {activeFiltersCount}
+                </span>
+              )}
+            </button>
           </div>
+
+          {/* Filter Panel */}
+          {isFilterOpen && (
+            <div ref={filterPanelRef} className="mb-8 p-6 rounded-lg bg-card border border-border">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Department */}
+                <div>
+                  <h4 className="font-medium mb-3">Department</h4>
+                  <div className="space-y-2">
+                    {departments.map((dept) => (
+                      <label key={dept} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedDepartments.includes(dept)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setSelectedDepartments([...selectedDepartments, dept])
+                            } else {
+                              setSelectedDepartments(selectedDepartments.filter(d => d !== dept))
+                            }
+                          }}
+                          className="rounded border-border"
+                        />
+                        <span className="text-sm">{dept}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Work Mode */}
+                <div>
+                  <h4 className="font-medium mb-3">Work Mode</h4>
+                  <div className="space-y-2">
+                    {workModes.map((mode) => (
+                      <label key={mode} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedWorkModes.includes(mode)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setSelectedWorkModes([...selectedWorkModes, mode])
+                            } else {
+                              setSelectedWorkModes(selectedWorkModes.filter(m => m !== mode))
+                            }
+                          }}
+                          className="rounded border-border"
+                        />
+                        <span className="text-sm">{mode}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Job Type */}
+                <div>
+                  <h4 className="font-medium mb-3">Job Type</h4>
+                  <div className="space-y-2">
+                    {jobTypes.map((type) => (
+                      <label key={type} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedJobTypes.includes(type)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setSelectedJobTypes([...selectedJobTypes, type])
+                            } else {
+                              setSelectedJobTypes(selectedJobTypes.filter(t => t !== type))
+                            }
+                          }}
+                          className="rounded border-border"
+                        />
+                        <span className="text-sm">{type}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Filter Actions */}
+              <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-border">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleClearAll}
+                  className="px-4 py-2"
+                >
+                  Clear All
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={handleApplyFilters}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2"
+                >
+                  Apply Filters
+                </Button>
+              </div>
+            </div>
+          )}
 
           {/* Job list */}
           <div className="space-y-4">
@@ -328,9 +492,15 @@ export default function CareersPage() {
                       <Briefcase className="w-4 h-4" />
                       {job.type}
                     </div>
-                    <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                      Apply Now
-                      <ArrowRight className="ml-2 w-4 h-4" />
+                    <Button
+                      asChild
+                      size="sm"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90"
+                    >
+                      <Link href="/contact">
+                        Apply Now
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
                     </Button>
                   </div>
                 </div>

@@ -1,11 +1,10 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
-import { Shield } from "lucide-react"
 
 export default function InsurancePage() {
   return (
     <IndustryPageTemplate
       name="Insurance"
-      icon={Shield}
+      iconName="shield"
       headline="Streamlined Insurance Operations"
       description="End-to-end insurance support from policy administration to claims processing, delivering efficiency and customer satisfaction."
       features={[

@@ -1,11 +1,10 @@
 import { SolutionPageTemplate } from "@/components/solution-page-template"
-import { Mail } from "lucide-react"
 
 export default function EmailSupportPage() {
   return (
     <SolutionPageTemplate
       name="Email Support"
-      icon={Mail}
+      iconName="mail"
       headline="Efficient Email Management at Scale"
       description="Professional email support with quick turnaround times, intelligent routing, and consistent quality."
       features={[

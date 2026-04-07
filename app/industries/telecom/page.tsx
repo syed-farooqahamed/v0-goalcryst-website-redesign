@@ -1,11 +1,10 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
-import { Wifi } from "lucide-react"
 
 export default function TelecomPage() {
   return (
     <IndustryPageTemplate
       name="Telecom"
-      icon={Wifi}
+      iconName="wifi"
       headline="Keeping the World Connected"
       description="24/7 telecommunications support that ensures seamless connectivity and exceptional customer experiences across all channels."
       features={[
